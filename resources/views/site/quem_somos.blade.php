@@ -217,7 +217,29 @@
 {
   background-color:
 }
-
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+#image1
+{
+  float: none;
+}
+#image2
+{
+  float: none;
+}
+#image3
+{
+  float: none;
+}
         </style>
 
     </head>
@@ -328,8 +350,51 @@
       <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://institutoreacao.org.br/wp-content/uploads/2020/12/Como-ensinar-e-estimular-a-solidariedade-nas-criancas.jpg" alt="">
       </div>
-    </div> 
+    </div>
+    <br> 
+    <hr>
+    <div class="container marketing mt-14">
 
+    <div class="row">
+      <div class="col-lg-3">
+        <center>
+        <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        </center>       
+        <h2><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+        <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+        <br><br>
+        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
+      </div>
+      <div class="col-lg-3">
+        <center>
+          <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          </center> 
+          <h2>Heading</h2>
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
+      </div>
+      <div class="col-lg-3">
+        <center>
+          <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          </center> 
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
+      </div>
+      <div class="col-lg-3">
+        <img id="image3" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
+      </div>
+      <div class="col-lg-3">
+        <img id="image3" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <h2>Heading</h2>
+        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-" href="#" role="button">Ver mais</a></p>
+      </div>
+    </div>
+  </div>
  
   
 <footer id="myFooter">
