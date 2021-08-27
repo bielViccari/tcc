@@ -80,18 +80,19 @@
 
 #myFooter{
     padding-top:32px;
-    
+    background-color: #1342fd;
 }
 
 #myFooter .container{
     text-align: center;
+    background-color: #1342fd;
     
 }
 
 #myFooter .footer-copyright{
     margin-bottom: 35px;
     text-align: center;
-    color: #777;
+    color: whitesmoke;
     text-decoration: overline;
 }
 
@@ -116,14 +117,14 @@
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: #eee;
+    background-color: rgb(0, 47, 255);
 }
 
 #myFooter .fa{
     font-size: 36px;
     margin-right: 15px;
     margin-left: 20px;
-    background-color: white;
+    background-color: rgba(50, 70, 255, 0.89);
     color: #d0d0d0;
     border-radius: 51%;
     padding: 10px;
@@ -217,7 +218,17 @@
 {
   background-color:
 }
-
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-title {
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
         </style>
 
     </head>
@@ -330,22 +341,50 @@
       </div>
     </div> 
 
- 
-  
+    <div class="container">
+    <div class="row mb-2 mt-12">
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Campanha do agasalho</strong>
+            <h3 class="mb-0">Birigui-Sp</h3>
+            <div class="mb-1 text-muted">25/08/2021 à 25/09/2021</div>
+            <p class="card-text mb-auto mt-2">A campanha do agasalho em birigui foi anunciada essa tarde , com o ponto de recolhimento na <strong>rua coronel prudente correa N 279</strong></p>
+            <a href="#" class="stretched-link"><strong style="color :blue">Ver mais</strong></a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img width="293" height="250" src="https://www.folhadaregiao.com.br/wp-content/uploads/2021/07/Agenda-723x570.jpg">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Campanha do agasalho</strong>
+            <h3 class="mb-0">Guararapes-Sp</h3>
+            <div class="mb-1 text-muted">10/08/2021 à 25/09/2021</div>
+            <p class="mb-auto">A campanha do agasalho em birigui foi anunciada essa tarde , com o ponto de recolhimento <strong>Rua luis peron,N 242</strong></p>
+            <a href="#" class="stretched-link"><strong style="color :blue">Ver mais</strong></a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img width="350" height="250" src="https://www.folhadaregiao.com.br/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-01-at-18.01.59.jpeg">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 <footer id="myFooter">
 <div class="container">
 
 <p class="footer-copyright">© 2021 Copyright - Solidariedade</p>
 </div>
 <div class="footer-social">
-
 <a href="#" class="circle-icons fa fa-facebook"></a>
 <a href="#" class="circle-icons fa fa-instagram"></a>
 <a href="#" class="circle-icons fa fa-google"></a>
 </div>
 </footer>
     
-
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 

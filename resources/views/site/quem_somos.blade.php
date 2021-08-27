@@ -228,174 +228,82 @@
   margin-right: .75rem;
   margin-left: .75rem;
 }
-#image1
-{
-  float: none;
-}
-#image2
-{
-  float: none;
-}
-#image3
-{
-  float: none;
-}
+
         </style>
 
     </head>
     <body>
       
      
-     @yield('conteudo')
      
-     <div class="relative bg-white overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
-    
-          <div>
-            <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
-              <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-                <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
-                  <div class="flex items-center justify-between w-full md:w-auto">
-                    <a href="{{ route('site.home') }}">
-                      
-                      <img class="h-8 w-auto sm:h-10" src="{{ url('solidariedade.png')  }}">
-                    </a>
-                    <div class="-mr-2 flex items-center md:hidden">
-                      <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-                        
-                       
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+      
 
-                  
-
-                  <a href="{{ route('postagens.index') }}" class="font-medium text-gray-500 hover:text-gray-900">Doações</a>
-    
-                  <a href="{{ route('postagens.create') }}" class="font-medium text-gray-500 hover:text-gray-900">Fazer doações</a>
-    
-                  <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Quem Somos?</a>
-    
-                  <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Login</a>
-                  <a href="{{ route('site.usuarios.create') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Registrar</a>
-                </div>
-              </nav>
-            </div>
-    
+        <div class="row container">
+          <div  class="col">
+            <center>
+            <img id="image1" class="rounded-circle" src="data:image/png;base64,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" width="140" height="140">
+            </center>
+                   
+            <h2 class="mt-2"><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+            <br>
+            <br>
+            <p >Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+            <br><br>
             
-
-
-
-            <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-              <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-                <div class="px-5 pt-4 flex items-center justify-between">
-                  <div>
-                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
-                  </div>
-                  <div class="-mr-2">
-                    <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                      <span class="sr-only">Close main menu</span>
-                      
-                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="px-2 pt-2 pb-3 space-y-1">
-                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Doações</a>
-    
-                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Fazer doações</a>
-    
-                  <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Quem Somos</a>
-    
-                  
-                </div>
-                <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-                  Login
-                </a>
-                <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
-                  Registrar
-                </a>
-              </div>
-            </div>
           </div>
-    
-          <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div class="sm:text-center lg:text-left">
-              <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span class="block xl:inline">SITE DE DOAÇÕES</span>
-                <span class="block text-red-600 xl:inline">ONLINE</span>
-              </h1>
-              
-              <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                A melhor recompensa por uma boa ação não se faz expressada aos olhos de todos, mas sim que é representada pelo sorriso de quem recebeu.
-              </p>
-              <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                
-              </div>
-            </div>
-          </main>
+          <div class="col">
+            <center>
+            <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            </center>
+                   
+            <h2 class="mt-2"><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+            <br>
+            <br>
+            <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+            <br><br>
+            
+          </div>
+          <div class="col">
+            <center>
+            <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            </center>
+                   
+            <h2 class="mt-2"><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+            <br>
+            <br>
+            <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+            <br><br>
+            
+          </div>
+          <div class="col">
+            <center>
+            <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            </center>
+                   
+            <h2 class="mt-2"><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+            <br>
+            <br>
+            <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+            <br><br>
+            
+          </div>
+          <div class="col">
+            <center>
+            <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            </center>
+                   
+            <h2 class="mt-2"><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
+            <br>
+            <br>
+            <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
+            <br><br>
+            
+          </div>
         </div>
+        </div>
+      
       </div>
-      <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://institutoreacao.org.br/wp-content/uploads/2020/12/Como-ensinar-e-estimular-a-solidariedade-nas-criancas.jpg" alt="">
-      </div>
-    </div>
-    <br> 
-    <hr>
-    <div class="container marketing mt-14">
 
-    <div class="row">
-      <div class="col-lg-3">
-        <center>
-        <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        </center>       
-        <h2><center><strong>Gabriel Viccari de Almeida</strong></center></h2>
-        <p>Aluno do 3 ano do ensino médio na escola etec de araçatuba ext. de guararapes </p>
-        <br><br>
-        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
-      </div>
-      <div class="col-lg-3">
-        <center>
-          <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          </center> 
-          <h2>Heading</h2>
-        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
-      </div>
-      <div class="col-lg-3">
-        <center>
-          <img id="image1" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          </center> 
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
-      </div>
-      <div class="col-lg-3">
-        <img id="image3" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-" href="#" role="button">Ver Mais</a></p>
-      </div>
-      <div class="col-lg-3">
-        <img id="image3" class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-" href="#" role="button">Ver mais</a></p>
-      </div>
-    </div>
-  </div>
- 
   
 <footer id="myFooter">
 <div class="container">
