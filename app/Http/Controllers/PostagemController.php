@@ -71,10 +71,10 @@ class PostagemController extends Controller
        return redirect()->back();
 
        
-       $dados = $request->all();
+       $dados=$request->all();
        if($request->imagem && $request->imagem->isValid() ){
-           if(Storage::exists($postagem->imagem))
-              Storage::delete($postagem->imagem);
+           if(Storage::exists($postagens->imagem))
+              Storage::delete($postagens->imagem);
 
 
           $nome_imagem = str::of($request->o_que_vai_doar . date('dmYHis'))->slug('-') . '.' . $request->imagem->getClientOriginalExtension();
@@ -85,7 +85,7 @@ class PostagemController extends Controller
          
        }
 
-       $dados->update($postagens->all());
+       $request->update($postagens->all());
 
        return redirect()
        ->route('postagens.index')
