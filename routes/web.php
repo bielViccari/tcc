@@ -27,7 +27,8 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');
     Route::get('/postagens/editar/{id}', [PostagemController::class,'edit'])->name('postagens.edit');
-    
+    Route::get('/quemsomos',[SiteController::class,'quemSomos'])->name('quem_somos');
+
     Route::post('/postagens', [PostagemController::class,'store'])->name('postagens.store');
     Route::put('/postagens/{id}', [PostagemController::class,'update'])->name('postagens.update');
     Route::delete('/postagens/{id}', [PostagemController::class,'destroy'])->name('postagens.destroy');
