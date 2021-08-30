@@ -131,6 +131,6 @@ class PostagemController extends Controller
 
           return redirect()->route('postagens.index')->with('mensagem','Postagem deletada com sucesso !');
     }
-
+   
 
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QuemsomosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');
     Route::get('/postagens/editar/{id}', [PostagemController::class,'edit'])->name('postagens.edit');
-    Route::get('/quemsomos',[SiteController::class,'quemSomos'])->name('quem_somos');
+    Route::get('/quemsomos',[QuemsomosController::class,'index'])->name('quemsomos');
 
     Route::post('/postagens', [PostagemController::class,'store'])->name('postagens.store');
     Route::put('/postagens/{id}', [PostagemController::class,'update'])->name('postagens.update');

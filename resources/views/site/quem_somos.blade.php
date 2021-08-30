@@ -182,6 +182,9 @@
   background-color:
 }
 
+ #insta:hover{
+   color: deeppink;
+ }
  
         </style>
 
@@ -269,9 +272,9 @@
   </div>
 <div class="mycontainer" style="display: flex;margin-left:150px;">   
     <span>
-      <img  src="{{ url('insta.png') }} " width="20" height="20">
+      <img id="insta_foto" src="{{ url('insta.png') }} " width="20" height="20">
         </span>
-        <span><a href="#"><strong style="color;">&nbsp Instagram</strong></a></span>
+        <span><a id="insta" style="" href="#"><strong style="color;">&nbsp Instagram</strong></a></span>
       </div>
 
         

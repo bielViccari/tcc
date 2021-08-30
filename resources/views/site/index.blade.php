@@ -80,60 +80,7 @@
 
 #myFooter{
     padding-top:32px;
-    background-color: #1342fd;
-}
-
-#myFooter .container{
-    text-align: center;
-    background-color: #1342fd;
     
-}
-
-#myFooter .footer-copyright{
-    margin-bottom: 35px;
-    text-align: center;
-    color: whitesmoke;
-    text-decoration: overline;
-}
-
-#myFooter ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 18px;
-}
-
-#myFooter a{
-    color: #282b2d;
-    font-size: 18px;
-}
-
-#myFooter li{
-    display: inline-block;
-    margin: 0px 15px;
-    line-height: 2;
-}
-
-#myFooter .footer-social{
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: rgb(0, 47, 255);
-}
-
-#myFooter .fa{
-    font-size: 36px;
-    margin-right: 15px;
-    margin-left: 20px;
-    background-color: rgba(50, 70, 255, 0.89);
-    color: #d0d0d0;
-    border-radius: 51%;
-    padding: 10px;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    line-height: 43px;
-    text-decoration: none;
-    transition:color 0.2s;
 }
 
 #myFooter .fa-facebook:hover{
@@ -161,47 +108,65 @@
     color:red;
 }
 
-
-
-
 #myFooter{
-   flex: 0 0 auto;
-   -webkit-flex: 0 0 auto;
+    padding-top:32px;
+    background-color: #0505a2;
+}
+
+#myFooter .container{
+    text-align: center;
+    background-color: #0505a2;
+}
+
+#myFooter .footer-copyright{
+    margin-bottom: 35px;
+    text-align: center;
+    color:whitesmoke;
+    text-decoration: overline;
+    
+}
+
+#myFooter ul{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 18px;
+}
+
+#myFooter a{
+    color: #282b2d;
+    font-size: 18px;
+}
+
+#myFooter li{
+    display: inline-block;
+    margin: 0px 15px;
+    line-height: 2;
+}
+
+#myFooter .footer-social{
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: #00008B;
+}
+
+#myFooter .fa{
+    font-size: 36px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: rgb(0, 17, 255);
+    color: #d0d0d0;
+    border-radius: 51%;
+    padding: 10px;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 43px;
+    text-decoration: none;
+    transition:color 0.2s;
 }
 
 
-.circle-icons {
-
-  padding: 10px; 
-
-  font-size: 18px;
-
-  width: 18px; 
-
-  text-align: center;
-
-  text-decoration: none;
-
-  margin: 5px 2px; 
-
-  border-radius: 50%;  
-
-  background: #f0e9e9; 
-
-  color: #fff; 
-
-}
-
-
-.circle-icons:hover {
-
-    background: #ccc; 
-
-    color: #fff;  
-
-    opacity: 0.7;
-
-}
 
 #img_post
 {
@@ -346,28 +311,28 @@
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">Campanha do agasalho</strong>
-            <h3 class="mb-0">Birigui-Sp</h3>
+            <strong class="d-inline-block mb-2 text-dark fs-3">CAMPANHA DO AGASALHO</strong>
+            <h3 class="mb-0 text-muted"><strong>Birigui-Sp</strong></h3>
             <div class="mb-1 text-muted">25/08/2021 à 25/09/2021</div>
             <p class="card-text mb-auto mt-2">A campanha do agasalho em birigui foi anunciada essa tarde , com o ponto de recolhimento na <strong>rua coronel prudente correa N 279</strong></p>
             <a href="#" class="stretched-link"><strong style="color :blue">Ver mais</strong></a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img width="293" height="250" src="https://www.folhadaregiao.com.br/wp-content/uploads/2021/07/Agenda-723x570.jpg">
+            <img  width="350" height="250" class="rounded" src="https://lh3.googleusercontent.com/proxy/8pJiI_7dhaDWiKtH92Bpz-t5SQcGn0OBV02hrRPiEUFkUfHwB6OUCBrfnAvmg6b9-HzD2_TuevYAsdpr4AwI5n5dJCZqIaSh_yvfORkXCKDJw5o_q_TdhmYv37Ho3y87nLrw9phSLG7-vF6sKZbxogFQ7Tezol8">
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">Campanha do agasalho</strong>
-            <h3 class="mb-0">Guararapes-Sp</h3>
+            <strong class="d-inline-block mb-2 text-dark fs-3">CAMPANHA DO AGASALHO</strong>
+            <h3 class="mb-0 text-muted"><strong>Guararapes-Sp</strong></h3>
             <div class="mb-1 text-muted">10/08/2021 à 25/09/2021</div>
-            <p class="mb-auto">A campanha do agasalho em birigui foi anunciada essa tarde , com o ponto de recolhimento <strong>Rua luis peron,N 242</strong></p>
+            <p class="mb-auto mt-2">A campanha do agasalho em birigui foi anunciada essa tarde , com o ponto de recolhimento <strong>Rua luis peron,N 242</strong></p>
             <a href="#" class="stretched-link"><strong style="color :blue">Ver mais</strong></a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img width="350" height="250" src="https://www.folhadaregiao.com.br/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-01-at-18.01.59.jpeg">
+            <img width="350" height="250" class="rounded" src="https://radiosolaris.com.br/wp-content/uploads/2021/05/183872169_2871149763133463_5186723257750448330_n-1-1024x1024.jpg">
           </div>
         </div>
       </div>

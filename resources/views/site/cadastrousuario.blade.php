@@ -24,7 +24,7 @@
 
 
    
-  <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen flex items-center justify-center bg-blue-200 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
       <div>
         <a href="{{ route('site.home') }}" ><img class="mx-auto h-12 w-auto"  src="{{ url('solidariedade.png')  }}" alt="Workflow"> </a>

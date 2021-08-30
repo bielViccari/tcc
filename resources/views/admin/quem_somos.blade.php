@@ -217,16 +217,9 @@
               
                     <div>
                      
-                        <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Login 
+                        <a href="{{ route('dashboard') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL
                         </a>
                     
-                    </div>
-                    <div class=" ">
-                      <div>
-                        
-                          <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >&nbspcadastrar 
-                          </a>
-                        
                       </div>
       
                     
