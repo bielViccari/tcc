@@ -137,10 +137,11 @@
                         
                         <div class="ml-3 relative">
                           <div>
-                            <button type="button" class="max-w-xs  rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                              <span class="sr-only">Open user menu</span>
-                              <a href="{{ route('dashboard') }}" ><img class="h-10 w-10 rounded-full" src="{{ url('perfil.png') }}" >
-                              </a>
+                            
+                              <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                              <button type="submit" class="mt-3 text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Sair</button>
+                              </form>
                             </button>
                           </div>
             
@@ -164,12 +165,14 @@
                   <div class="col-3 mx-auto bg-white shadow rounded">
                       <div class="input-group input-group-sm flex-nowrap">
                     <p class="text-muted mt-3"><strong>Detalhes da conta </strong></p> 
+                    
                     <a class="mt-3" style="padding-left: 45%;"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                       </svg></a>
                       </div>
-                        <div class="container mt-5 mb-4" style="padding-left: 23%">
-                        <svg class="bd-placeholder-img rounded-circle" width="120" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+                      <hr width="170px" style="height: 3px; color: blue ;">
+                        <div class="container mt-3 mb-4" style="padding-left: 23%">
+                        <img class="bd-placeholder-img rounded-circle" width="120" height="120" src="{{ url('kathlen.jfif') }}"> 
                          <div class="mt-1" style="padding-left:50%">
                              <button class="btn-sm btn btn-outline-success">Alterar</button>
                         </div>
@@ -246,23 +249,85 @@
                             <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
                           </svg></a>
                           <p class="text-muted "><strong>&nbsp; Atividades da Conta</strong></p>
+                          
                          </div>
-
+<hr width="250px" style="height: 3px; color: blue ;">
                          <div class=" mt-12">
                           <div class="container mt-1" >
                             <div class="row">
                             <div class="col-md-2">
-                            <svg class=" rounded-circle mt-0" width="90" height="90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">img</text></svg>
+                            <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
                             </div>
-                          <div class="col-md-3 mt-2">
+                          <div class="col-md-3 mt-0">
                           <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
                           <p class="text-muted">Titulo: tenis</p>
                           <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
                           </div> 
+                          <hr class="mt-2">
                         </div>  
                         </div>    
                           </div>
 
+                          <div class=" mt-12">
+                            <div class="container mt-1" >
+                              <div class="row">
+                              <div class="col-md-2">
+                              <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
+                              </div>
+                            <div class="col-md-3 mt-0">
+                            <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
+                            <p class="text-muted">Titulo: tenis</p>
+                            <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
+                            </div> 
+                            <hr class="mt-2">
+                          </div>  
+                          </div>    
+                            </div>
+                            <div class=" mt-12">
+                              <div class="container mt-1" >
+                                <div class="row">
+                                <div class="col-md-2">
+                                <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
+                                </div>
+                              <div class="col-md-3 mt-0">
+                              <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
+                              <p class="text-muted">Titulo: tenis</p>
+                              <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
+                              </div> 
+                              <hr class="mt-2">
+                            </div>  
+                            </div>    
+                              </div>
+                              <div class=" mt-12">
+                                <div class="container mt-1" >
+                                  <div class="row">
+                                  <div class="col-md-2">
+                                  <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
+                                  </div>
+                                <div class="col-md-3 mt-0">
+                                <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
+                                <p class="text-muted">Titulo: tenis</p>
+                                <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
+                                </div> 
+                                <hr class="mt-2">
+                              </div>  
+                              </div>    
+                                </div>
+                                <div class=" mt-12">
+                                  <div class="container mt-1" >
+                                    <div class="row">
+                                    <div class="col-md-2">
+                                    <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
+                                    </div>
+                                  <div class="col-md-3 mt-0">
+                                  <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
+                                  <p class="text-muted">Titulo: tenis</p>
+                                  <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
+                                  </div> 
+                                  <hr class="mt-2">
+                                </div>  
+                                </div>    
+                                  </div>
                           
                          
 
