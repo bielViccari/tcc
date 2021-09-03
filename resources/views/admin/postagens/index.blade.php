@@ -13,7 +13,12 @@
         
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -115,6 +120,7 @@
     </head>
 
   <body>  
+    
 
     
 
@@ -211,16 +217,52 @@
       </div>
  @endif
  <div class="row">
+   
   @foreach ($postagens as $postagem)
+  <div style="top: 15%" class="modal fade" id="exampleModal_{{$postagem->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-muted text-lg" id="exampleModalLabel"><strong>Doação: {{$postagem->o_que_vai_doar}}</strong></h5>
+      
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div style="padding-left: 92%;" class="container">
+          <button class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300" type="button" aria-label="like">
+            <svg width="20" height="20" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+          </div>
+          <div class="container">
+<img style="padding-left:25% " width="300px"  src="https://static.zattini.com.br/produtos/tenis-salto-plataforma-bordado-fe-feminino/24/30G-0002-024/30G-0002-024_zoom1.jpg?ts=1614365212&ims=544x" >
+
+        <a class="text-muted"><strong>Tipo:</strong></a> {{$postagem->tipo}}
+         <br> 
+        <br>
+        <a class="text-muted"><strong>Quantidade:</strong></a> <a>{{$postagem->quantidade}}
+        </a>
+          </div>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"><a class="link-light" href="{{route('postagens.show',$postagem->id)}}">ver mais</a></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
   <div class="col-4 mt-4">
     <div class="card shadow-sm">
-      <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
+      <img src="{{ url("public/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
       <div class="card-body bg-light">
         <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>Tipo: {{ $postagem->tipo }}<br>Quantidade: {{ $postagem->quantidade }}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <a href="{{ route('postagens.show', $postagem->id) }}" class="btn btn-sm btn-outline-success">Ver</a>
+            <button type="button" class="btn btn-sm  btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$postagem->id}}">
+              Ver mais
+            </button>
             <a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
             <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
               @csrf
