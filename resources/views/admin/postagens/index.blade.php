@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@extends('layouts.footer')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -13,104 +14,57 @@
         
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-<<<<<<< HEAD
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
         
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-=======
-    
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
->>>>>>> fddb7bb92815a6a958544025cdb34e5336cb2477
-
+               
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
 
-
-#myFooter .fa-facebook:hover{
-   color: #2b55ff;
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#myFooter .fa-facebook:focus{
-    color: #2b55ff; 
-}
-
-#myFooter .fa-instagram:hover{
-    color:DeepPink;
-}
-
-#myFooter .fa-instagram:focus{
-    color: DeepPink;
+li {
+  margin: 0 2rem;
 }
 
 
-#myFooter .fa-google:hover{
-    color:red;
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  
 }
 
-#myFooter .fa-google:focus{
-    color:red;
+a:hover{
+  transform: scale(1.1);
+    transition: all 0.5s;
 }
 
-#myFooter{
-    padding-top:32px;
-    background-color: #0505a2;
+a::after {
+  
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(252, 6, 6);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
 }
 
-#myFooter .container{
-    text-align: center;
-    
-}
-
-#myFooter .footer-copyright{
-    margin-bottom: 35px;
-    text-align: center;
-    color:whitesmoke;
-    text-decoration: overline;
-}
-
-#myFooter ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 18px;
-}
-
-#myFooter a{
-    color: #282b2d;
-    font-size: 18px;
-}
-
-#myFooter li{
-    display: inline-block;
-    margin: 0px 15px;
-    line-height: 2;
-}
-
-#myFooter .footer-social{
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #00008B;
-}
-
-#myFooter .fa{
-    font-size: 36px;
-    margin-right: 15px;
-    margin-left: 20px;
-    background-color: rgb(0, 17, 255);
-    color: #d0d0d0;
-    border-radius: 51%;
-    padding: 10px;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    line-height: 43px;
-    text-decoration: none;
-    transition:color 0.2s;
+a:hover::after,
+a:focus::after {
+  
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
 }
  
 #fundo
@@ -130,52 +84,53 @@
 
 
     
-   
-    <div>
-      <nav class="bg-blue-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-            <div class="flex items-center">
-              <div class="flex-shrink-0">
-                <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
-              </div>
-              <div class="hidden md:block">
-                <div class="ml-10 flex items-baseline space-x-4">
-                  
-                  <a href="{{ route('admin.home') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
-    
-                  <a href="{{ route('postagens.index') }}"  class="bg-blue-800 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Doações</a>
-    
-                  <a href="{{ route('postagens.create') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fazer doações</a>
-    
-                  <a href="{{ route('quemsomos') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quem Somos?</a>
-    
-                  
-                </div>
-              </div>
+    <nav class="bg-blue-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
             </div>
             <div class="hidden md:block">
-              <div class="ml-4 flex items-center md:ml-6">
-               
-    
+              <div class="ml-10 flex items-baseline space-x-4">
                 
-                <div class="ml-3 relative">
-                  <div>
-                    <button type="button" class="max-w-xs  rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                      <span class="sr-only">Open user menu</span>
-                      <a href="{{ route('dashboard') }}" ><img class="h-10 w-10 rounded-full" src="{{ url('perfil.png') }}" >
-                      </a>
-                    </button>
-                  </div>
-    
-                  
-                </div>
+                
+                <a href="{{ route('admin.home') }}" id="home" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+  
+                <a href="{{ route('postagens.index') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
+  
+                <a href="{{ route('postagens.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
+  
+                <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+  
+                
               </div>
             </div>
-           
           </div>
+          <div class="hidden md:block">
+            <div class="ml-1  flex items-center md:ml-6">
+             
+              @if (Auth::user())
+
+              <a href="{{ route('dashboard') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
+              
+          @else
+          <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+          <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+       
+
+          @endif
+          
+               
+                
+              </div>
+            </div>
+          </div>
+         
         </div>
-      </nav>
+      </div>
+    </nav>
+    
     
 
 <main>
@@ -221,44 +176,8 @@
       </div>
  @endif
  <div class="row">
-<<<<<<< HEAD
   @foreach ($postagens as $postagem)      
-  <div style="top: 15%" class="modal fade" id="exampleModal_{{$postagem->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title text-muted text-lg" id="exampleModalLabel"><strong>Doação: {{$postagem->o_que_vai_doar}}</strong></h5>
-      
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div style="padding-left: 92%;" class="container">
-          <button class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300" type="button" aria-label="like">
-            <svg width="20" height="20" fill="currentColor">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-            </svg>
-          </button>
-          </div>
-          <div class="container">
-<img style="padding-left:25% " width="300px"  src="https://static.zattini.com.br/produtos/tenis-salto-plataforma-bordado-fe-feminino/24/30G-0002-024/30G-0002-024_zoom1.jpg?ts=1614365212&ims=544x" >
-
-        <a class="text-muted"><strong>Tipo:</strong></a> {{$postagem->tipo}}
-         <br> 
-        <br>
-        <a class="text-muted"><strong>Quantidade:</strong></a> <a>{{$postagem->quantidade}}
-        </a>
-          </div>
-      </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary"><a class="link-light" href="{{route('postagens.show',$postagem->id)}}">ver mais</a></button>
-        </div>
-      </div>
-    </div>
-  </div>
   
-=======
-  @foreach ($postagens as $postagem)
->>>>>>> fddb7bb92815a6a958544025cdb34e5336cb2477
   
   <div class="col-4 mt-4">
     <div class="card shadow-sm">
@@ -268,29 +187,44 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             
-            
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPostagem_{{ $postagem->id }}">
-  Launch demo modal
-</button>
+            <button type="button" class="btn btn-sm  btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$postagem->id}}">
+              Ver mais
+            </button>
+
+            <div style="top: 15%" class="modal fade" id="exampleModal_{{$postagem->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-muted text-lg" id="exampleModalLabel"><strong>Doação: {{$postagem->o_que_vai_doar}}</strong></h5>
+                
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div style="padding-left: 92%;" class="container">
+                    <button class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300" type="button" aria-label="like">
+                      <svg width="20" height="20" fill="currentColor">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                      </svg>
+                    </button>
+                    </div>
+                    <div class="container">
+          <img style="padding-left:25% " width="300px"  src="https://static.zattini.com.br/produtos/tenis-salto-plataforma-bordado-fe-feminino/24/30G-0002-024/30G-0002-024_zoom1.jpg?ts=1614365212&ims=544x" >
+          
+                  <a class="text-muted"><strong>Tipo:</strong></a> {{$postagem->tipo}}
+                   <br> 
+                  <br>
+                  <a class="text-muted"><strong>Quantidade:</strong></a> <a>{{$postagem->quantidade}}
+                  </a>
+                    </div>
+                </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary"><a class="link-light" href="{{route('postagens.show',$postagem->id)}}">ver mais</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
-<div class="modal fade" id="modalPostagem_{{ $postagem->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
             <a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
             <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
               @csrf
@@ -335,18 +269,7 @@
        </div>
 </main>
 
-<footer id="myFooter">
-  <div class="container">
-      
-      <p class="footer-copyright">© 2021 Copyright - Solidariedade</p>
-  </div>
-  <div class="footer-social">
-   
-<a href="#" class="circle-icons fa fa-facebook"></a>
-<a href="#" class="circle-icons fa fa-instagram"></a>
-<a href="#" class="circle-icons fa fa-google"></a>
-  </div>
-</footer>
+@yield('footer')
 
   </body>
     

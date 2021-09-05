@@ -82,6 +82,49 @@
     
   }
 
+  ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  margin: 0 2rem;
+}
+
+
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  
+}
+
+a:hover{
+  transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+a::after {
+  
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(252, 6, 6);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+a:hover::after,
+a:focus::after {
+  
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
   input[type=submit]:hover {
     background-color: #0a740f;
   }
@@ -104,52 +147,52 @@
 </head>
 
 <body>
-
-  <div>
-    <nav class="bg-blue-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
-            </div>
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
-                
-                <a href="{{ route('admin.home') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
-  
-                <a href="{{ route('postagens.index') }}"  class="bg-blue-800 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Doações</a>
-  
-                <a href="{{ route('postagens.create') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fazer doações</a>
-  
-                <a href="{{ route('quemsomos') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Quem Somos?</a>
-  
-                
-                </div>
-            </div>
+  <nav class="bg-blue-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
           </div>
           <div class="hidden md:block">
-            <div class="ml-4 flex items-center md:ml-6">
-             
-  
+            <div class="ml-10 flex items-baseline space-x-4">
               
-              <div class="ml-3 relative">
-                <div>
-                  <button type="button" class="max-w-xs  rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                    <span class="sr-only">Open user menu</span>
-                    <a href="{{ route('dashboard') }}" ><img class="h-10 w-10 rounded-full" src="{{ url('perfil.png') }}" >
-                    </a>
-                  </button>
-                </div>
-  
-                
-              </div>
+              
+              <a href="{{ route('admin.home') }}" id="home" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+
+              <a href="{{ route('postagens.index') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
+
+              <a href="{{ route('postagens.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
+
+              <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+
+              
             </div>
           </div>
-         
         </div>
+        <div class="hidden md:block">
+          <div class="ml-1  flex items-center md:ml-6">
+           
+            @if (Auth::user())
+
+            <a href="{{ route('dashboard') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
+            
+        @else
+        <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+        <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+     
+
+        @endif
+        
+             
+              
+            </div>
+          </div>
+        </div>
+       
       </div>
-    </nav>
+    </div>
+  </nav>
 
 
   

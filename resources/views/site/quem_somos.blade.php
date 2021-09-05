@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@extends('layouts.footer')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
       
@@ -28,160 +29,53 @@
     @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 
-#quem_somos
-{
+
+    ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  margin: 0 2rem;
+}
+
+
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
   
-  text-decoration: underline;
+}
+
+a:hover{
+  transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+a::after {
   
-
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(252, 6, 6);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
 }
 
-.blog-post 
-{
- 
+a:hover::after,
+a:focus::after {
   
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
 }
 
-#titulo
-{
-  text-decoration: overline lightgray;
-}
- .body-post-title
- {
-   text-decoration: overline;
- }
 
-#img1
-{
-  border-radius: 10px 10px 10px 10px;
-}  
-
-
-.container
-{
-  background-color: white;
-}
- 
-#carousel
-{
-  left: 4%;
-  width: 92%;
-}
-
-#p1
-{
-  padding-top: 5%;
-}
-
-#img2
-{
-  border-radius: 10px 10px 10px 10px;
-}
-
-#myFooter{
-    padding-top:32px;
+   
     
-}
-
-#myFooter .fa-facebook:hover{
-   color: #2b55ff;
-}
-
-#myFooter .fa-facebook:focus{
-    color: #2b55ff; 
-}
-
-#myFooter .fa-instagram:hover{
-    color:DeepPink;
-}
-
-#myFooter .fa-instagram:focus{
-    color: DeepPink;
-}
-
-
-#myFooter .fa-google:hover{
-    color:red;
-}
-
-#myFooter .fa-google:focus{
-    color:red;
-}
-
-#myFooter{
-    padding-top:32px;
-    background-color: #0505a2;
-}
-
-#myFooter .container{
-    text-align: center;
-    background-color: #0505a2;
-}
-
-#myFooter .footer-copyright{
-    margin-bottom: 35px;
-    text-align: center;
-    color:whitesmoke;
-    text-decoration: overline;
-    
-}
-
-#myFooter ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 18px;
-}
-
-#myFooter a{
-    color: #282b2d;
-    font-size: 18px;
-}
-
-#myFooter li{
-    display: inline-block;
-    margin: 0px 15px;
-    line-height: 2;
-}
-
-#myFooter .footer-social{
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #00008B;
-}
-
-#myFooter .fa{
-    font-size: 36px;
-    margin-right: 15px;
-    margin-left: 20px;
-    background-color: rgb(0, 17, 255);
-    color: #d0d0d0;
-    border-radius: 51%;
-    padding: 10px;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    line-height: 43px;
-    text-decoration: none;
-    transition:color 0.2s;
-}
-
-#img_post
-{
-  padding-top: 10px;
-  border-radius:  10px 10px ;
-}
-
-#a
-{
-  color: #282b2d;
-}
-
-#navigation
-{
-  background-color:
-}
-
  #insta:hover{
    color: deeppink;
  }
@@ -190,6 +84,7 @@
 
     </head>
     <body>
+      @yield('conteudo')
       <div> 
         <nav class="bg-blue-900">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -201,13 +96,14 @@
                 <div class="hidden md:block">
                   <div class="ml-10 flex items-baseline space-x-4">
                     
-                    <a href="{{ route('site.home') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+                    
+                    <a href="{{ route('site.home') }}" id="home" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
       
-                    <a href="{{ route('postagens.index') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Doações</a>
+                    <a href="{{ route('postagens.index') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
       
-                    <a href="{{ route('postagens.create') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fazer doações</a>
+                    <a href="{{ route('postagens.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
       
-                    <a href="#" class="bg-blue-800 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" >Quem Somos?</a>
+                    <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
       
                     
                   </div>
@@ -216,22 +112,18 @@
               <div class="hidden md:block">
                 <div class="ml-1  flex items-center md:ml-6">
                  
-      
+                  @if (Auth::user())
+
+                  <a href="{{ route('dashboard') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
+                  
+              @else
+              <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+              <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+           
+
+              @endif
               
-                    <div>
-                     
-                        <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Login 
-                        </a>
-                    
-                    </div>
-                    <div class=" ">
-                      <div>
-                        
-                          <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >&nbspcadastrar 
-                          </a>
-                        
-                      </div>
-      
+                   
                     
                   </div>
                 </div>
@@ -240,8 +132,10 @@
             </div>
           </div>
         </nav>
+        
        <img src="{{ url('quemsomos.png') }}">
 
+       
        <div class="container mt-12 mb-12">
          <div class="row">
 
@@ -280,9 +174,11 @@
         
 
 <div class="mt-12">
-    <center><p><strong>CONTATO:</strong></p></center>
+    <center><p><svg style="" xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+    </svg><strong><a style="padding-left: 3%;">CONTATO:</strong><a></p></center>
 </div>
-      <div class="mycontainer " style="display: flex;margin-left:150px;">
+      <div class="mycontainer mt-3" style="display: flex;margin-left:150px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
           <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
         </svg>
@@ -300,19 +196,10 @@
        
 
 
-<footer id="myFooter">
-<div class="container">
 
-<p class="footer-copyright">© 2021 Copyright - Solidariedade</p>
-</div>
-<div class="footer-social">
 
-<a href="#" class="circle-icons fa fa-facebook"></a>
-<a href="#" class="circle-icons fa fa-instagram"></a>
-<a href="#" class="circle-icons fa fa-google"></a>
-</div>
-</footer>
-    
+@yield('footer')
+
 
        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

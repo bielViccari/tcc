@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@extends('layouts.footer')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
       
@@ -17,8 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         
         
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
+   
 <style type='text/css'>
     * { margin: 0; padding: 0; }
 
@@ -27,173 +27,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-
-#quem_somos
-{
-  
-  text-decoration: underline;
-  
-
-}
-
-.blog-post 
-{
- 
-  
-}
-
-#titulo
-{
-  text-decoration: overline lightgray;
-}
- .body-post-title
- {
-   text-decoration: overline;
- }
-
-#img1
-{
-  border-radius: 10px 10px 10px 10px;
-}  
-
-
-.container
-{
-  background-color: white;
-}
- 
-#carousel
-{
-  left: 4%;
-  width: 92%;
-}
-
-#p1
-{
-  padding-top: 5%;
-}
-
-#img2
-{
-  border-radius: 10px 10px 10px 10px;
-}
-
-#myFooter{
-    padding-top:32px;
-    
-}
-
-#myFooter .fa-facebook:hover{
-   color: #2b55ff;
-}
-
-#myFooter .fa-facebook:focus{
-    color: #2b55ff; 
-}
-
-#myFooter .fa-instagram:hover{
-    color:DeepPink;
-}
-
-#myFooter .fa-instagram:focus{
-    color: DeepPink;
-}
-
-
-#myFooter .fa-google:hover{
-    color:red;
-}
-
-#myFooter .fa-google:focus{
-    color:red;
-}
-
-#myFooter{
-    padding-top:32px;
-    background-color: #0505a2;
-}
-
-#myFooter .container{
-    text-align: center;
-    background-color: #0505a2;
-}
-
-#myFooter .footer-copyright{
-    margin-bottom: 35px;
-    text-align: center;
-    color:whitesmoke;
-    text-decoration: overline;
-    
-}
-
-#myFooter ul{
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 18px;
-}
-
-#myFooter a{
-    color: #282b2d;
-    font-size: 18px;
-}
-
-#myFooter li{
-    display: inline-block;
-    margin: 0px 15px;
-    line-height: 2;
-}
-
-#myFooter .footer-social{
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    background-color: #00008B;
-}
-
-#myFooter .fa{
-    font-size: 36px;
-    margin-right: 15px;
-    margin-left: 20px;
-    background-color: rgb(0, 17, 255);
-    color: #d0d0d0;
-    border-radius: 51%;
-    padding: 10px;
-    height: 60px;
-    width: 60px;
-    text-align: center;
-    line-height: 43px;
-    text-decoration: none;
-    transition:color 0.2s;
-}
-
-
-
-#img_post
-{
-  padding-top: 10px;
-  border-radius:  10px 10px ;
-}
-
-#a
-{
-  color: #282b2d;
-}
-
-#navigation
-{
-  background-color:
-}
-.blog-post {
-  margin-bottom: 4rem;
-}
-.blog-post-title {
-  margin-bottom: .25rem;
-  font-size: 2.5rem;
-}
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #727272;
-}
+   
         </style>
 
     </head>
@@ -238,10 +72,19 @@
                   <a href="{{ route('postagens.create') }}" class="font-medium text-gray-500 hover:text-gray-900">Fazer doações</a>
     
                   <a href="{{ route('site.quem_somos.home') }}" class="font-medium text-gray-500 hover:text-gray-900">Quem Somos?</a>
-    
+   
+                  @if (Auth::user())
+
+                      <a href="{{ route('dashboard') }} " class="font-medium text-indigo-600 hover:text-indigo-500" >PERFIL</a>
+                      
+                  @else
                   <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Login</a>
                   <a href="{{ route('site.usuarios.create') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Registrar</a>
-                </div>
+               
+
+                  @endif
+ 
+                   </div>
               </nav>
             </div>
     
@@ -338,19 +181,13 @@
       </div>
     </div>
     </div>
-<footer id="myFooter">
-<div class="container">
 
-<p class="footer-copyright">© 2021 Copyright - Solidariedade</p>
-</div>
-<div class="footer-social">
-<a href="#" class="circle-icons fa fa-facebook"></a>
-<a href="#" class="circle-icons fa fa-instagram"></a>
-<a href="#" class="circle-icons fa fa-google"></a>
-</div>
-</footer>
     
-       
+@yield('footer')        
+    
+
+    
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
         

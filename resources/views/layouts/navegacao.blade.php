@@ -1,52 +1,58 @@
-@yield('navigation')
-<div class="relative bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
-        <div class="flex justify-start lg:w-0 lg:flex-1">
-          <a href="#">
-            <span class="sr-only">Workflow</span>
-            <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
-          </a>
+<html>
+  <head>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+  </head>
+<body>
+<div> 
+  @yield('topo')
+  <nav class="bg-blue-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
+          </div>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              
+              <a href="{{ route('site.home') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+
+              <a href="{{ route('postagens.index') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Doações</a>
+
+              <a href="{{ route('postagens.create') }}" class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Fazer doações</a>
+
+              <a href="#" class="bg-blue-800 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page" >Quem Somos?</a>
+
+              
+            </div>
+          </div>
         </div>
-        <div class="-mr-2 -my-2 md:hidden">
-          <button type="button" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
-            <span class="sr-only">Open menu</span>
+        <div class="hidden md:block">
+          <div class="ml-1  flex items-center md:ml-6">
            
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-        <nav class="hidden md:flex space-x-10">
-          <div class="relative">
+            @if (Auth::user())
+
+            <a href="{{ route('dashboard') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
+            
+        @else
+        <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+        <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+     
+
+        @endif
         
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-            Doações
-          </a>
+             
+              
+            </div>
           </div>
-          <div class="relative">
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-            Fazer doações
-          </a>
-          </div>
-          <div class="relative">
-          <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
-            Campanhas do agasalho
-          </a>
-          </div>
-            
-          
-          
-        </nav>   
-  
-            
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-            Sign in
-          </a>
-          <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-            Sign up
-          </a>
         </div>
-      
+       
+      </div>
+    </div>
+  </nav>
+</body>
   
