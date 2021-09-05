@@ -211,47 +211,71 @@ a:focus::after {
     
 @endif
 
-
+<div class="container">
   <form enctype="multipart/form-data" action="{{ route('postagens.store') }}" method="POST">
 @csrf
 
-    <div class="shadow sm:rounded-md sm:overflow-hidden">
-      <div class="px-4 py-5 bg-gray-50 space-y-6 sm:p-6">
+
+    
         
+          <div class=" overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5  sm:p-6">
+              <div class="grid grid-cols-6 gap-6">
+                <div class="col-span-6">
+                  <label for="o_que_vai_doar" class="block text-sm font-medium text-gray-700">O que vai doar ?</label>
+                  <input type="text" name="o_que_vai_doar" id="o_que_vai_doar" autocomplete="o_que_vai_doar" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
 
-        <div>
-          <label for="o_que_vai_doar" class="block text-sm font-medium text-gray-700">Oque vai doar ?</label>
-          <input type="text" id="o_que_vai_doar" name="o_que_vai_doar" placeholder="ex.: calça jeans N 40">
-    
-          <label for="instituicao" class="block text-sm font-medium text-gray-700">Instituições:<a id="obrigatorio">&nbsp &nbsp &nbsp &nbsp &nbsp*não obrigatório</a></label>
-          <select id="instituicao" name="instituicao" class="block text-sm font-medium text-gray-700">
-            <option value="nenhuma" class="block text-sm font-medium text-gray-700">Nenhuma</option>
-            <option value="Santa Casa de Guararapes" class="block text-sm font-medium text-gray-700">Santa Casa de Guararapes</option>
-            <option value="instituto de ajuda à menores" class="block text-sm font-medium text-gray-700">instituto de ajuda à menores</option>
-            <option value="Ong sem teto" class="block text-sm font-medium text-gray-700">Ong sem teto</option>
+                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                  <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone para contato:</label>
+                  <input type="text" style=""  name="telefone" id="telefone" placeholder="(99) 9999-99999" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onkeypress="$(this).mask('(00) 0000-00009')">
             
-          </select>
-    
-          <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo:</label>
-          <select id="tipo" name="tipo" class="block text-sm font-medium text-gray-700">
-            <option value="meia" class="block text-sm font-medium text-gray-700">meia</option>
-            <option value="sapato" class="block text-sm font-medium text-gray-700">sapato</option>
-            <option value="bermuda" class="block text-sm font-medium text-gray-700">bermuda</option>
-            <option value="calça" class="block text-sm font-medium text-gray-700">calça</option>
-            <option value="camisa" class="block text-sm font-medium text-gray-700">camisa</option>
-            <option value="moletom" class="block text-sm font-medium text-gray-700">Moletom</option>
-            <option value="camisa" class="block text-sm font-medium text-gray-700">Cobertor</option>
-          </select>
-    
-          <label for="quantidade" class="block text-sm font-medium text-gray-700">Quantidade:</label>
-          <input style="width:70px; padding:0;"  type="number"  name="quantidade" id="quantidade" value="1" class="block text-sm font-medium text-gray-700">
-              
-          
-          <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone para contato:</label>
-          <input type="text" style="width: 200px;"  name="telefone" id="telefone" placeholder="(99) 9999-99999" class="form-control" onkeypress="$(this).mask('(00) 0000-00009')">
-    
-          
+                </div>
+      
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo</label>
+                <select id="country" name="tipo" autocomplete="tipo" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>Meia</option>
+                  <option>bermuda</option>
+                  <option>Calça</option>
+                  <option>Blusa</option>
+                  <option>Moletom</option>
+                  <option>Cobertor</option>
+                </select>
+                </div>
+      
+                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                  <label for="quantidade" class="block text-sm font-medium text-gray-700">Quantidade</label>
+                <select id="country " name="quantidade" autocomplete="quantidade" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+                </div>
 
+                              
+
+                
+          <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+            <label for="cidade" class="block text-sm font-medium text-gray-700">Cidade</label>
+            <input type="text" name="cidade" id="cidade" placeholder="Rubiácea" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+          </div>
+
+          <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+            <label for="bairro" class="block text-sm font-medium text-gray-700">Bairro</label>
+            <input type="text" name="bairro" id="bairro" placeholder="Centro" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+          </div>
+
+          <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+            <label for="rua" class="block text-sm font-medium text-gray-700">Rua</label>
+            <input type="text" name="rua" id="rua" autocomplete="rua" placeholder="Rua Coronel prudente correa,279" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+          </div>
+              </div>
+            </div>
+          </div>
         <div>
           <label class="block text-sm font-medium text-gray-700">
             Foto da doação
@@ -273,16 +297,18 @@ a:focus::after {
             </div>
           </div>
         </div>
+        
+
+        <div class="px-4 py-3  text-right sm:px-6">
+          <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            Salvar
+          </button>
+        </div>
       </div>
-      <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          Salvar
-        </button>
-      </div>
+      
     </div>
   </form>
-
-
+</div>
 
 </body>
 

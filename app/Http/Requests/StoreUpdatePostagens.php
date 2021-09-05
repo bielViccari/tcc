@@ -29,9 +29,7 @@ class StoreUpdatePostagens extends FormRequest
                 'min:1',
                 'max:150'
             ],
-            'instituicao' =>[
-             'required'
-            ],
+            
             'quantidade' =>[
                 'required',
                 'min:1',
@@ -50,6 +48,15 @@ class StoreUpdatePostagens extends FormRequest
             'imagem'=>[
                 'required',
                 'image'
+            ],
+            'cidade'=>[
+                'required',
+            ],
+            'bairro'=>[
+                'required',
+            ],
+            'rua'=>[
+                'required',
             ]
         
         ];

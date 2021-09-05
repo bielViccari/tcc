@@ -16,10 +16,13 @@ class CreatePostagensTable extends Migration
         Schema::create('postagens', function (Blueprint $table) {
             $table->id();
             $table->string('o_que_vai_doar', 255);
-            $table->string('instituicao');
+            
             $table->string('tipo');
             $table->integer('quantidade');
             $table->string('telefone');
+            $table->string('cidade');
+            $table->string('bairro');
+            $table->string('rua');
 
             $table->foreignId('user_id')->constrained();
 

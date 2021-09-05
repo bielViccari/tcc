@@ -14,12 +14,14 @@ class Postagem extends Model
     protected $table = 'postagens';
     protected $fillable = [
         'o_que_vai_doar',
-        'instituicao',
         'tipo',
         'quantidade',
         'user_id',
         'telefone',
         'imagem',
+        'cidade',
+        'bairro',
+        'rua',
        
         
     ];
