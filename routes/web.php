@@ -6,6 +6,8 @@ use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuemsomosController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\sobreController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,7 @@ use App\Http\Controllers\QuemsomosController;
 */
 
 
+Route::get('/quemsomos',[QuemsomosController::class,'index'])->name('quemsomos');
 
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
@@ -28,8 +31,11 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');
     Route::get('/postagens/editar/{id}', [PostagemController::class,'edit'])->name('postagens.edit');
-    Route::get('/quemsomos',[QuemsomosController::class,'index'])->name('quemsomos');
-
+   
+    Route::get('/perfil',[sobreController::class,'create'])->name('sobre.create');
+    
+    
+    Route::post('/perfil', [sobreController::class,'store'])->name('sobre.store');
     Route::post('/postagens', [PostagemController::class,'store'])->name('postagens.store');
     Route::put('/postagens/{id}', [PostagemController::class,'update'])->name('postagens.update');
     Route::delete('/postagens/{id}', [PostagemController::class,'destroy'])->name('postagens.destroy');
@@ -38,9 +44,6 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 
 
