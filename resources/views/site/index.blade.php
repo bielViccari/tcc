@@ -75,7 +75,7 @@
    
                   @if (Auth::user())
 
-                      <a href="{{ route('dashboard') }} " class="font-medium text-indigo-600 hover:text-indigo-500" >PERFIL</a>
+                      <a href="{{ route('perfil.edit') }} " class="font-medium text-indigo-600 hover:text-indigo-500" >PERFIL</a>
                       
                   @else
                   <a href="{{ route('login') }}" class="font-medium text-indigo-600 hover:text-indigo-500">Login</a>

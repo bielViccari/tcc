@@ -32,10 +32,11 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');
     Route::get('/postagens/editar/{id}', [PostagemController::class,'edit'])->name('postagens.edit');
    
-    Route::get('/perfil',[sobreController::class,'create'])->name('sobre.create');
+
+    Route::get('/perfil',[RegisteredUserController::class,'edit'])->name('perfil.edit');
+    Route::post('/perfil', [RegisteredUserController::class,'store'])->name('perfil.store');
     
     
-    Route::post('/perfil', [sobreController::class,'store'])->name('sobre.store');
     Route::post('/postagens', [PostagemController::class,'store'])->name('postagens.store');
     Route::put('/postagens/{id}', [PostagemController::class,'update'])->name('postagens.update');
     Route::delete('/postagens/{id}', [PostagemController::class,'destroy'])->name('postagens.destroy');

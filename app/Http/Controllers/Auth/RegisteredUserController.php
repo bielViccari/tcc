@@ -23,6 +23,12 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
+    public function edit()
+    {
+        $user=Auth::user();
+        return view('admin.perfil',compact('user'));
+    }
+
     /**
      * Handle an incoming registration request.
      *
