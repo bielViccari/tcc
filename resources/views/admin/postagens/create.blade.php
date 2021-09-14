@@ -93,19 +93,20 @@ li {
 }
 
 
-a {
+
+#a {
   display: block;
   position: relative;
   padding: 0.2em 0;
   
 }
 
-a:hover{
+#a:hover{
   transform: scale(1.1);
     transition: all 0.5s;
 }
 
-a::after {
+#a::after {
   
   content: '';
   position: absolute;
@@ -113,13 +114,13 @@ a::after {
   left: 0;
   width: 100%;
   height: 0.1em;
-  background-color: rgb(252, 6, 6);
+  background-color: rgb(255, 255, 255);
   opacity: 0;
   transition: opacity 300ms, transform 300ms;
 }
 
-a:hover::after,
-a:focus::after {
+#a:hover::after,
+#a:focus::after {
   
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
@@ -158,13 +159,13 @@ a:focus::after {
             <div class="ml-10 flex items-baseline space-x-4">
               
               
-              <a href="{{ route('admin.home') }}" id="home" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+              <a href="{{ route('admin.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
 
-              <a href="{{ route('postagens.index') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
+              <a href="{{ route('postagens.index') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
 
-              <a href="{{ route('postagens.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
+              <a href="{{ route('postagens.create') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
 
-              <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+              <a href="{{ route('site.quem_somos.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
 
               
             </div>
@@ -175,7 +176,7 @@ a:focus::after {
            
             @if (Auth::user())
 
-            <a href="{{ route('dashboard') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
+            <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
             
         @else
         <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>

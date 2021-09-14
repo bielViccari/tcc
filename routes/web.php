@@ -20,12 +20,12 @@ use App\Http\Controllers\sobreController;
 */
 
 
-Route::get('/quemsomos',[QuemsomosController::class,'index'])->name('quemsomos');
+Route::get('/quem_somos', [SiteController::class,'quemSomos'])->name('site.quem_somos.home');
 
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
-
     Route::get('/',[AdminController::class, 'index'])->name('admin.home');
+   
 
     Route::get('/postagens', [PostagemController::class,'index'])->name('postagens.index');
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
