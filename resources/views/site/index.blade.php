@@ -161,7 +161,7 @@
             <a href="#" class="stretched-link"><strong style="color :blue">Ver mais</strong></a>
           </div>
           <div class="col-auto d-none d-lg-block">
-            <img  width="350" height="250" class="rounded" src="https://lh3.googleusercontent.com/proxy/8pJiI_7dhaDWiKtH92Bpz-t5SQcGn0OBV02hrRPiEUFkUfHwB6OUCBrfnAvmg6b9-HzD2_TuevYAsdpr4AwI5n5dJCZqIaSh_yvfORkXCKDJw5o_q_TdhmYv37Ho3y87nLrw9phSLG7-vF6sKZbxogFQ7Tezol8">
+            <img  width="350" height="250" class="rounded" src="https://lh3.googleusercontent.com/proxy/WitfjnNBLC5lg_8RPsBGRY29s1D-xxYd6vViC3I8hZUKrlDayUNImZATrJy5miIrdy_FLG2E_w5WfI5JXpVO-0D0P8I5XkR0liuhg5OtYTXPLnFBW3K-bRAcgybUYpsqnwh0Tn-r">
           </div>
         </div>
       </div>

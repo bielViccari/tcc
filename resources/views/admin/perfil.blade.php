@@ -146,7 +146,7 @@ li {
      <hr style="color: rgb(23, 37, 116); height:2px;">
      <div class="container">
       <p class="text-muted mt-1"><strong> Editar conta </strong></p>
-      <form enctype="multipart/form-data" action="#" method="POST">
+      <form enctype="multipart/form-data" action="{{ route('site.usuarios.store') }}" method="POST">
           @csrf
           
       
