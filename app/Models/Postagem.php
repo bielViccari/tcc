@@ -30,7 +30,7 @@ class Postagem extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function comentario(){
+    public function comentarios(){
         return $this->hasMany(Comentario::class);
     }
 

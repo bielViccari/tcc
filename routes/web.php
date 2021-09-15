@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\QuemsomosController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\sobreController;
+use App\Http\Controllers\ComentariosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +27,10 @@ Route::get('/quem_somos', [SiteController::class,'quemSomos'])->name('site.quem_
 Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/',[AdminController::class, 'index'])->name('admin.home');
    
-
+    
+    Route::post('/comentarios',[ComentariosController::class,'store'])->name('comentarios.store');
+    Route::delete('/comentarios/{id}', [ComentariosController::class,'destroy'])->name('comentarios.destroy');
+    
     Route::get('/postagens', [PostagemController::class,'index'])->name('postagens.index');
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');

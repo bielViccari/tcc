@@ -166,8 +166,60 @@ li {
     </div>
 </div>
 
+<div class="comentarios">
+  <div class="row">
+    @foreach ($postagens->comentarios as $comentario )
+    <div class="col-3">
+<p class="imagem">
+   {{ $comentario->iniciais() }}
+</p>
+    </div>
+    <div class="col-9">
+  <p class="comentario">
+   {{ $comentario->comentario }}
+  </p>
+    </div>
+    <div class="col-12">
+      <p class="text-muted">
+      por: {{ $comentario->user->name }} em {{ $comentario->created_at }}
+      </p>   
+    </div>
+    @endforeach
+  </div>
+</div>
+
+@if ($errors->any())
+<div class="alert alert-danger">
+  <strong>algo deu errado</strong> <br><br>
+  <ul>
+    @foreach ($errors as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
+@if ($mensagem = Session::get('mensagem'))
+<div class="alert alert-success">
+  <p>{{ $mensagem }}</p>
+</div>
+    
+@endif
 
 
+<form method="POST" action="{{ route('comentarios.store') }}">
+@csrf
+  <input type="hidden" name="postagem_id" value="{{ $postagens->id }}">
+
+  <div class="form-group">
+    <label for="comentario">Deixe sua pergunta para o doador</label>
+    <textarea name="comentario" id="comentario" class="form-control" cols="30" rows="10">{{ old('comentario') }}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">
+  Enviar
+  </button>
+</form>
 
    @yield('footer')
 
