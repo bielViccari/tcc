@@ -95,7 +95,7 @@ li {
                 <div class="flex-shrink-0">
                   <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
                 </div>
-                <div class="hidden md:block">
+                <div class=" md:block">
                   <div class="ml-10 flex items-baseline space-x-4">
                     
                     
@@ -111,7 +111,7 @@ li {
                   </div>
                 </div>
               </div>
-              <div class="hidden md:block">
+              <div class=" md:block">
                 <div class="ml-1  flex items-center md:ml-6">
                  
                   @if (Auth::user())

@@ -39,8 +39,8 @@ class PostagemController extends Controller
         $postagem = Postagem::create($dados);
 
         return redirect()
-                    ->route('postagens.show', $postagem->id)
-                    ->with('mensagem', 'Postagem criada com sucesso');
+                    ->route('postagens.show', $postagem->id);
+                    
     }
 
 

@@ -92,7 +92,7 @@ li {
             <div class="flex-shrink-0">
               <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
             </div>
-            <div class="hidden md:block">
+            <div class=" md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 
                 
@@ -108,7 +108,7 @@ li {
               </div>
             </div>
           </div>
-          <div class="hidden md:block">
+          <div class="md:block">
             <div class="ml-1  flex items-center md:ml-6">
              
               @if (Auth::user())
@@ -148,10 +148,8 @@ li {
       
       <nav class="navbar navbar-expand-lg navbar-light " id="prucurar_doar">
         <div class="container-fluid ">
-          <button class="navbar-toggler bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse">
+          
+          <div class=" navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <form class="d-flex">
                 <input class=" form-control me-1 " type="search" placeholder="Buscar" aria-label="Search">
@@ -253,23 +251,7 @@ li {
          
       
               @endforeach
-              <nav aria-label="Page navigation example">
-                <ul class="pagination mt-3">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+             
        </div>
 </main>
 

@@ -83,7 +83,7 @@ li {
             <div class="flex-shrink-0">
               <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
             </div>
-            <div class="hidden md:block">
+            <div class=" md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 
                 
