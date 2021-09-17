@@ -91,7 +91,7 @@ li {
 }
 
 
-#imagem
+#imagem_doacao
 {
   
   width:440px;
@@ -102,6 +102,14 @@ li {
   display: table;
 }
 
+#div_lateral
+{
+ 
+ border-color:rgb(72, 71, 71);
+  border-radius: 10px 10px 10px 10px;
+  width: 500px;
+  height: 500px;
+}
 </style>
 
 
@@ -159,154 +167,185 @@ li {
 
     
 
+  <div class="container mb-12 mt-12">
+    <div class="row ">
+      
 
-<div class="container mt-3">
-<div class="tudo">
-<div class="row">
-  
- <div class="col-4">
- <img id="imagem" class="img-thumbnail"  src="{{ url("storage/{$postagens->imagem}") }}">
- </div>
-
- <div class="col-8">
-  <div class="input-group input-group-sm flex-nowrap">
-  <p class="mt-5">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
-      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
-    </svg> 
-  </p>
-<p  class="text-lg text-muted mt-5"> &nbsp;<strong> Doação:</strong> {{ $postagens->o_que_vai_doar }}</p>
-  </div>
-
-  <div class="input-group input-group-sm flex-nowrap" >
-   <p class="mt-12"> 
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
-      <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
-      <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/> 
-    </svg>  
-  </p>
-
-  <p  class="text-lg text-muted mt-12">
-   &nbsp;<strong> Tipo:</strong> {{ $postagens->tipo }}     
-  </p>
-  </div>
-  <div class="input-group input-group-sm flex-nowrap" >
-  <p class="mt-12">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-      <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-    </svg>
-  </p>
-  <p  class="text-lg text-muted mt-12">
-   &nbsp;<strong> Disponivel : </strong> {{ $postagens->quantidade }}
-  </p>
-</div>
-
-<div class="input-group input-group-sm flex-nowrap" >
-  <p class="mt-12">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
-      <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
-    </svg> 
-  </p>
-
-  <p  class="text-lg text-muted mt-12"> &nbsp;<strong> Cidade: </strong>{{ $postagens->cidade }}</p>
-</div>
-
-<div class="input-group input-group-sm flex-nowrap" >
-  <p class="mt-12">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-    </svg>
-  </p>
-
-  <p  class="text-lg text-muted mt-12"> &nbsp; <strong> bairro:</strong> {{ $postagens->bairro }}</p>
-</div>
-
-
-<div class="input-group input-group-sm flex-nowrap" >
-  <p  class=" mt-12">
-    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-compass-fill" viewBox="0 0 16 16">
-      <path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"/>
-    </svg> 
-  </p>
-
-  <p  class=" text-lg text-muted mt-12"> &nbsp;<strong> rua: </strong> {{ $postagens->rua }}</p>
-</div>
-  </div>
-
-    <div class="col-6">
-    <div class="container  bg-gray-50 mt-3 " id="comentarios">
-      <div class="comentarios">
-        <div>
-          <p class="text-muted text-lg"><strong>Comentários :</strong></p>
-        <hr style="width: 90px; color:blue; height:3px;">
-        </div>
-        <div class="row">
-          @foreach ($postagens->comentarios as $comentario )
-          
-          <div class="col-2 bg-white">
-      <p class="imagem text-muted text-lg" id="iniciais">
-          {{ $comentario->iniciais() }}
-      </p>
-          </div>
-          <div class="col-10 bg-white ">
-        <p class="comentario " id="texto_comentario">
-         {{ $comentario->comentario }}
-        </p>
-          </div>
-          <div  class="col-12 bg-white mb-12">
-            <p style="padding-left:42px;" class="text-muted" id="user_comentario" >
-            Autor : {{ $comentario->user->name }} em {{ $comentario->created_at->format('d/m/Y H:i') }}
-            </p> 
-            <br>
+      <div class="col-12 mx-auto  bg-white shadow rounded">
+          <div class="input-group mt-3 input-group-sm flex-nowrap">
             
+              <p class="text-muted text-lg"><strong>&nbsp; Informações da doação</strong></p>
+              
+             </div>
+  <hr width="250px" style="height: 3px; color: blue ;">
+           <div class="row"> 
+           <div  class=" col-6  mt-4 mb-2 " style=" ">
+          <img id="imagem_doacao" src="{{ url("storage/{$postagens->imagem}") }}"  alt="">          
+</div> 
+
+           <div id="div_lateral" class="col-6 border mt-6 mb-3 " >
+             <p class=" text-lg mt-2"><strong>DESCRIÇÃO :</strong></p>
+             <hr style="color: blue; width:150px; height:3px;">
+             <div class="textos ml-12">
+               <br>
+               <div class="row">
+                 <div class="mx-auto">
+               <div class="input-group input-group-sm flex-nowrap">   
+                 <p><img width="25" height="25" src="{{ url('camiseta.png') }}" alt=""></p>    
+        <p class="">  <strong>&nbsp; DOAÇÃO &nbsp;</strong>{{ $postagens->o_que_vai_doar }}</p>
+               </div>
+        <br>
+        <div class="input-group input-group-sm flex-nowrap">
+         <p><img width="25" height="25" src="{{ url('cabide.png') }}" alt=""></p>
+          <p class=""><strong>&nbsp; TIPO &nbsp;</strong>{{ $postagens->tipo }}</p>
+        </div>
+          <br>
+          <div class="input-group input-group-sm flex-nowrap">
+<p><img width="25" height="25" src="{{ url('pacote.png') }}" alt=""></p>
+            <p class=""><strong>&nbsp; QUANTIDADE &nbsp;</strong>{{ $postagens->quantidade }}</p>
           </div>
+<br>
+<div class="input-group input-group-sm flex-nowrap">
+  <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+  </svg></p>
+              <p class=""><strong>&nbsp; TELEFONE &nbsp; </strong>{{ $postagens->telefone }}</p>
+</div>
+<br>
+<div class="input-group input-group-sm flex-nowrap">
+  <p><img width="25" height="25" src="{{ url('cidade.png') }}" alt=""></p>
+                <p class=""><strong>&nbsp; CIDADE &nbsp; </strong>{{ $postagens->cidade }}</p>
+</div>
+<br>
+<div class="input-group input-group-sm flex-nowrap">
+  <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+  </svg></p>
+                  <p class=""><strong>&nbsp; BAIRRO &nbsp;</strong>{{ $postagens->bairro }}</p>
+</div>
+<br>
+<div class="input-group input-group-sm flex-nowrap">
+  <p><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+  </svg></p>
+                    <p class=""><strong>&nbsp; RUA &nbsp;</strong>{{ $postagens->rua }}</p>
+</div>
+             </div>
+            </div>
+            </div>
+
+</div>
+               
+</div> 
+
+
+ 
+  
+  
+      <div class="col-6">
+      <div class="container mt-3 " id="comentarios">
+        <div class="comentarios">
+          <div class="mb-3">
+            <p class="text-muted text-lg"><strong>Comentários :</strong></p>
+          <hr style="width: 90px; color:blue; height:3px;">
+          </div>
+          <div class="row">
+            <form method="POST" class="row g-2" action="{{ route('comentarios.store') }}">
+              @csrf
+                <input type="hidden" name="postagem_id" value="{{ $postagens->id }}">
+              
+                <label for="comentario" class="text-muted text-lg text-center"><strong>Faça um comentario</strong></label>
+                  <div class="col-auto input-group-sm mb-2" style="padding-left: 30%;">
+                    <textarea  name="comentario" class="form-control" id="comentario" oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' ></textarea>
+                  </div>
+                 
+                  <div class="col-auto">
+                    <button type="submit" class="btn btn-sm btn-primary mb-3">Comentar</button>
+                  </div>
+                
+              </form>
+
+              @if ($errors->any())
+        <div class="alert alert-danger">
+          <strong>algo deu errado</strong> <br><br>
+          <ul>
+            @foreach ($errors as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         
-          @endforeach
+        @if ($mensagem = Session::get('mensagem'))
+        <div class="alert alert-success">
+          <p>{{ $mensagem }}</p>
         </div>
-      </div>
-      
-      @if ($errors->any())
-      <div class="alert alert-danger">
-        <strong>algo deu errado</strong> <br><br>
-        <ul>
-          @foreach ($errors as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-      @endif
-      
-      @if ($mensagem = Session::get('mensagem'))
-      <div class="alert alert-success">
-        <p>{{ $mensagem }}</p>
-      </div>
+            
+        @endif
+
+            @foreach ($postagens->comentarios as $comentario )
+            
+
+            
+            <div class="col-2 bg-gray-50">
+        <p class="imagem text-muted text-lg" id="iniciais">
+            {{ $comentario->iniciais() }}
+        </p>
+            </div>
+            <div class="col-10 bg-gray-50 ">
+          <p class="comentario " id="texto_comentario">
+           {{ $comentario->comentario }}
+          </p>
+            </div>
+            <div  class="col-12 bg-gray-50 mb-2">
+              <p style="padding-left:42px;" class="text-muted" id="user_comentario" >
+              Autor : {{ $comentario->user->name }} em {{ $comentario->created_at->format('d/m/Y H:i') }}
+              </p> 
+              <br>
+              
+            </div>
           
-      @endif
-      
-      
-      <form method="POST" action="{{ route('comentarios.store') }}">
-      @csrf
-        <input type="hidden" name="postagem_id" value="{{ $postagens->id }}">
-      
-        <div class="form-group mt-12">
-          <div id="deixe_sua_pergunta">
-          <label for="comentario" class="text-muted text-lg"><strong>Deixe sua pergunta para o doador:</strong></label>
+            @endforeach
           </div>
-          <textarea style="height: 70px;" name="comentario" id="comentario" class="form-control" cols="30" rows="10">{{ old('comentario') }}</textarea>
         </div>
-      
-        <button style="float: right" type="submit" class="btn btn-success mt-2 btn-sm">
-        Enviar
-        </button>
-      </form>
+        
+        
+        
+        
+        
+        </div>
       </div>
-    </div>
+  </div>
+     
+  
 </div>
-    <div class="col-6"></div>
+
 </div>
+
 </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    @yield('footer')
 
 </body>

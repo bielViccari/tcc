@@ -76,6 +76,7 @@ li {
 {
   background-color: 
 }
+
     </style>
     </head>
 
@@ -139,12 +140,12 @@ li {
 
   
     <div class="">
-<img width="100%" src="https://institutomarciliomarinho.com.br/wp-content/uploads/2020/02/Banner_Solidariedade-e1581343075635.png"  > 
+<img height="1600px" width="1600px" src="https://institutomarciliomarinho.com.br/wp-content/uploads/2020/02/Banner_Solidariedade-e1581343075635.png"  > 
     </div>
   
 
   <div class="album py-5 " id="fundo">
-    <div class="container ">
+    <div class="container  ">
       
       <nav class="navbar navbar-expand-lg navbar-light " id="prucurar_doar">
         <div class="container-fluid ">
@@ -182,51 +183,16 @@ li {
     <div class="card shadow-sm">
       <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
       <div class="card-body bg-light">
-        <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>Tipo: {{ $postagem->tipo }}<br>Quantidade: {{ $postagem->quantidade }}</p>
+        <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
+          <br>
+          <br>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             
-            <button type="button" class="btn btn-sm  btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{$postagem->id}}">
-              Ver mais
-            </button>
+            
 
-            <div style="top: 5%" class="modal fade" id="exampleModal_{{$postagem->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title text-muted text-lg" id="exampleModalLabel"><strong>Doação: {{$postagem->o_que_vai_doar}}</strong></h5>
-                
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div style="padding-left: 92%;" class="container">
-                    <button class="flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300" type="button" aria-label="like">
-                      <svg width="20" height="20" fill="currentColor">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
-                      </svg>
-                    </button>
-                    </div>
-                    <div class="container">
-                      <img src="{{ url("storage/{$postagem->imagem}") }}" class="img-fluid card-img-top" style="width: 20rem; margin-left:10%; height: 15rem;">
-                <br>      
-                  <a class="text-muted"><strong>Tipo:</strong></a> {{$postagem->tipo}}
-                   <br> 
-                  <br>
-                  <a class="text-muted"><strong>Quantidade:</strong></a> <a>{{$postagem->quantidade}}
-                  </a>
-                  <br>
-                  <br>
-                  <a class="text-muted"><strong>Quantidade:</strong></a> <a>{{$postagem->cidade}}</a>
-                    </div>
-                </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary"><a class="link-light" href="{{route('postagens.show',$postagem->id)}}">ver mais</a></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+           
+            <a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
             <a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
             <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
               @csrf
@@ -240,7 +206,7 @@ li {
             </form>
 
           </div>
-          <small class="text-muted">25/08/2021</small>
+          <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
         </div>
       </div>
     </div>

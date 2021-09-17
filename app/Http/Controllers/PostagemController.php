@@ -85,7 +85,7 @@ class PostagemController extends Controller
          
        }
 
-       $request->update($postagens->all());
+       $request->update($postagens->$id);
 
        return redirect()
        ->route('postagens.index')
