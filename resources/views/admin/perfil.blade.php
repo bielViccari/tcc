@@ -227,93 +227,28 @@ li {
 <hr width="250px" style="height: 3px; color: blue ;">
            <div class=" mt-12">
             <div class="container mt-1" >
+             
+              @foreach ($postagens as $postagem)
               <div class="row">
-              <div class="col-md-2">
-              <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
+            
+            <div class="col-md-2">
+              <img class=" img  rounded mt-0 " style="width: 250px; height:100px;" width="200" height="150" src="{{ url("storage/{$postagem->imagem}") }}">
               </div>
             <div class="col-md-3 mt-0">
-            <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-            <p class="text-muted">Titulo: tenis</p>
-            <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
+              <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
+              <p class="text-muted">Titulo:{{ $postagem->o_que_vai_doar }}</p>
+              <p><small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }} </small></p>
+              </div> 
+              <div class="col-md-4 mt-11">
+                <button class="btn btn-outline-danger btn-sm">apagar</button>
+              </div>
+              <hr class="mt-2 mb-12 " style="width: 450px;">
             </div> 
-            <div class="col-md-4 mt-11">
-             <button class="btn btn-outline-danger btn-sm">apagar</button>
-            </div>
-            <hr class="mt-2 " style="width: 450px;">
-          </div>  
+              @endforeach
+           
           </div>    
             </div>
 
-            <div class=" mt-12">
-              <div class="container mt-1" >
-                <div class="row">
-                <div class="col-md-2">
-                <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
-                </div>
-              <div class="col-md-3 mt-0">
-              <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-              <p class="text-muted">Titulo: tenis</p>
-              <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
-              </div>
-              <div class="col-md-4 mt-11">
-                <button class="btn btn-outline-danger btn-sm">apagar</button>
-               </div> 
-              <hr class="mt-2" style="width: 450px;">
-            </div>  
-            </div>    
-              </div>
-              <div class=" mt-12">
-                <div class="container mt-1" >
-                  <div class="row">
-                  <div class="col-md-2">
-                  <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
-                  </div>
-                <div class="col-md-3 mt-0">
-                <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-                <p class="text-muted">Titulo: tenis</p>
-                <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
-                </div> 
-                <div class="col-md-4 mt-11">
-                  <button class="btn btn-outline-danger btn-sm">apagar</button>
-                 </div>
-                <hr class="mt-2" style="width: 450px;">
-              </div>  
-              </div>    
-                </div>
-                <div class=" mt-12">
-                  <div class="container mt-1" >
-                    <div class="row">
-                    <div class="col-md-2">
-                    <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
-                    </div>
-                  <div class="col-md-3 mt-0">
-                  <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-                  <p class="text-muted">Titulo: tenis</p>
-                  <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
-                  </div>
-                  <div class="col-md-4 mt-11">
-                    <button class="btn btn-outline-danger btn-sm">apagar</button>
-                   </div> 
-                  <hr class="mt-2" style="width: 450px;">
-                </div>  
-                </div>    
-                  </div>
-                  <div class=" mt-12">
-                    <div class="container mt-1" >
-                      <div class="row">
-                      <div class="col-md-2">
-                      <img class=" rounded mt-0 " width="200" height="150" src="https://malaprontagramado.com.br/wp-content/uploads/2020/04/roupas-para-natal-luz.jpg" </img>
-                      </div>
-                    <div class="col-md-3 mt-0">
-                    <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-                    <p class="text-muted">Titulo: tenis</p>
-                    <p><small class="text-muted"> 20/08/2020 às 18:15</small></p>
-                    </div> 
-                    <div class="col-md-4 mt-11">
-                      <button class="btn btn-outline-danger btn-sm">apagar</button>
-                     </div>
-                    <hr class="mt-2" style="width: 450px;">
-                  </div>  
                   </div>  
                    
                     </div>

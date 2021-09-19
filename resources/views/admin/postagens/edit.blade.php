@@ -198,6 +198,10 @@ li {
 
   
 
+
+
+</ul>
+    
 @if ($errors->any())
 
 <strong>Oops...</strong> As informações inseridas não são válidas<br><br>
@@ -207,35 +211,31 @@ li {
 <li>{{  $error }}</li>
     
 @endforeach
-
-</ul>
-    
-@endif
+@endif 
 
 <div class="container">
-  <form enctype="multipart/form-data" action="{{ route('postagens.update',['id' => $postagens->id]) }}" method="put">
+  <form enctype="multipart/form-data" action="{{ route('postagens.update',$postagens->id)}} " method="post">
 @csrf
+@method('put')
 
-
-    
-        
+       <p class="text-muted text-lg text-center"><strong>Editar a Doação</strong></p>
           <div class=" overflow-hidden sm:rounded-md">
             <div class="px-4 py-5  sm:p-6">
               <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">
                   <label for="o_que_vai_doar" class="block text-sm font-medium text-gray-700">O que vai doar ?</label>
-                  <input type="text" name="o_que_vai_doar" id="o_que_vai_doar" autocomplete="o_que_vai_doar" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                  <input type="text" name="o_que_vai_doar" id="o_que_vai_doar" value="{{$postagens->o_que_vai_doar}}" autocomplete="o_que_vai_doar" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                 </div>
 
                 <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                   <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone para contato:</label>
-                  <input type="text" style=""  name="telefone" id="telefone" placeholder="(99) 9999-99999" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onkeypress="$(this).mask('(00) 0000-00009')">
+                  <input type="text" style="" value="{{$postagens->telefone}}"  name="telefone" id="telefone" placeholder="(99) 9999-99999" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" onkeypress="$(this).mask('(00) 0000-00009')">
             
                 </div>
       
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo</label>
-                <select id="country" name="tipo" autocomplete="tipo" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <select id="country" name="tipo" autocomplete="tipo"  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <option>Meia</option>
                   <option>bermuda</option>
                   <option>Calça</option>
@@ -262,17 +262,17 @@ li {
                 
           <div class="col-span-6 sm:col-span-6 lg:col-span-2">
             <label for="cidade" class="block text-sm font-medium text-gray-700">Cidade</label>
-            <input type="text" name="cidade" id="cidade" placeholder="Rubiácea" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            <input type="text" value="{{$postagens->cidade}}" name="cidade" id="cidade" placeholder="Rubiácea" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
 
           <div class="col-span-6 sm:col-span-3 lg:col-span-2">
             <label for="bairro" class="block text-sm font-medium text-gray-700">Bairro</label>
-            <input type="text" name="bairro" id="bairro" placeholder="Centro" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            <input type="text" value="{{$postagens->bairro}}" name="bairro" id="bairro" placeholder="Centro" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
 
           <div class="col-span-6 sm:col-span-3 lg:col-span-2">
             <label for="rua" class="block text-sm font-medium text-gray-700">Rua</label>
-            <input type="text" name="rua" id="rua" autocomplete="rua" placeholder="Rua Coronel prudente correa,279" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            <input type="text" name="rua" id="rua" value="{{$postagens->rua}}" autocomplete="rua" placeholder="Rua Coronel prudente correa,279" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
           </div>
               </div>
             </div>

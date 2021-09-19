@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+use App\Models\Postagem;
+use App\Http\Requests\StoreUpdatePostagens;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -26,7 +31,8 @@ class RegisteredUserController extends Controller
     public function edit()
     {
         $user=Auth::user();
-        return view('admin.perfil',compact('user'));
+        $postagens = Postagem::where('user_id', Auth::user()->id)->get();
+        return view('admin.perfil',compact('user','postagens'));
     }
 
     /**

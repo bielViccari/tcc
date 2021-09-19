@@ -14,7 +14,7 @@ class PostagemController extends Controller
 
 
     public function index(){
-        $postagens = Postagem::where('user_id', Auth::user()->id)->get();
+        $postagens = Postagem::all();
         return view('admin.postagens.index',compact ('postagens'));
     }
 
@@ -53,6 +53,8 @@ class PostagemController extends Controller
 
     public function show($id){
         $postagens = Postagem::find($id);
+
+
         if (!$postagens)
         return redirect()->route('postagens.index');
         return view('admin.postagens.show', compact('postagens') );
@@ -85,7 +87,7 @@ class PostagemController extends Controller
          
        }
 
-       $request->update($postagens->$id);
+       $postagens->update($request->all());
 
        return redirect()
        ->route('postagens.index')

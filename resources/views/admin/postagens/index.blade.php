@@ -176,8 +176,10 @@ li {
       </div>
  @endif
  <div class="row">
+
+  <p class="text-muted text-lg"><strong>Minhas Doações</strong></p>
   @foreach ($postagens as $postagem)      
-  
+  @if (Auth::user()->id === $postagem->user_id)
   
   <div class="col-3 mt-3">
     <div class="card shadow-sm">
@@ -191,20 +193,19 @@ li {
             
             
 
+<a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
+<a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
+<form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
+  @csrf
+  @method('delete')
+  
+  <button class="btn btn-sm btn-outline-danger" type="submit">
+     Apagar
+  </button>
+</form>
+
            
-            <a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
-            <a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
-            <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
-              @csrf
-              @method('delete')
-              
-              <button class="btn btn-sm btn-outline-danger" type="submit">
-                 Apagar
-              </button>
-              
-
-            </form>
-
+            
           </div>
           <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
         </div>
@@ -215,10 +216,48 @@ li {
   
        
          
-      
+      @endif
+
+      @if (Auth::user()->id <> $postagem->user_id)
+     
+      @endif
               @endforeach
              
+           
+      
+           
+       <p class="text-muted text-lg mt-12"><strong>Doações</strong></p>
+       @foreach ($postagens as $postagem)      
+       @if (Auth::user()->id <> $postagem->user_id)
+  
+       <div class="col-3 mt-3">
+         <div class="card shadow-sm">
+           <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
+           <div class="card-body bg-light">
+             <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
+               <br>
+               <br>
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="btn-group">
+                 
+                 
+     
+     <a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
+     
+     
+               </div>
+               <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
+             </div>
+           </div>
+         </div>
        </div>
+            
+       
+            
+              
+       @endif
+                   @endforeach
+ </div>
 </main>
 
 @yield('footer')
