@@ -139,10 +139,13 @@ li {
         <hr width="170px" style="height: 3px; color: blue ;">
           <div class="container mt-3 mb-4" style="padding-left: 23%">
           <img class="bd-placeholder-img rounded-circle" width="120" height="120" src="{{ url('kathlen.jfif') }}"> 
-           <div class="mt-1" style="padding-left:50%">
-               <button class="btn-sm btn btn-outline-success">Alterar</button>
+        </div>
+          <div class="mt-1 mr-3" style="">
+            <label for="formControlFile" class="form-control-sm">
+              <input type="file" class="form-control-file form-control-file-sm" id="imagem" name="imagem"> 
+            </label>
           </div>
-      </div>
+      
      <hr style="color: rgb(23, 37, 116); height:2px;">
      <div class="container">
       <p class="text-muted mt-1"><strong> Editar conta </strong></p>
@@ -228,7 +231,10 @@ li {
            <div class=" mt-12">
             <div class="container mt-1" >
              
+              <div class="row">
               @foreach ($postagens as $postagem)
+               
+              
               <div class="row">
             
             <div class="col-md-2">
@@ -240,9 +246,17 @@ li {
               <p><small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }} </small></p>
               </div> 
               <div class="col-md-4 mt-11">
-                <button class="btn btn-outline-danger btn-sm">apagar</button>
+                <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
+                  @csrf
+                  @method('delete')
+                  
+                  <button class="btn btn-sm btn-outline-danger" type="submit">
+                     Apagar
+                  </button>
+                </form>
               </div>
               <hr class="mt-2 mb-12 " style="width: 450px;">
+             
             </div> 
               @endforeach
            

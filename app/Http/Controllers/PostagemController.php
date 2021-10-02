@@ -12,9 +12,17 @@ use Illuminate\Support\Facades\Auth;
 class PostagemController extends Controller
 {
 
+    function __construct(){
+
+        $this->tamanhoPaginacao = 6;
+        
+    }
 
     public function index(){
-        $postagens = Postagem::all();
+
+        
+        $postagens = Postagem::latest()->paginate($this->tamanhoPaginacao);
+
         return view('admin.postagens.index',compact ('postagens'));
     }
 

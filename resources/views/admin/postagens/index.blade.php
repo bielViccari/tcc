@@ -194,7 +194,7 @@ li {
             
 
 <a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
-<a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-dark ">Editar</a>
+<a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-warning ">Editar</a>
 <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
   @csrf
   @method('delete')
@@ -242,7 +242,7 @@ li {
                  
                  
      
-     <a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
+     <a class="text link-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
      
      
                </div>
@@ -257,7 +257,10 @@ li {
               
        @endif
                    @endforeach
- </div>
+<div class="justify-content-left d-flex">
+      {{$postagens->links()}}
+</div>
+</div>
 </main>
 
 @yield('footer')
