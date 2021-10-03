@@ -19,11 +19,22 @@ class PostagemController extends Controller
     }
 
     public function index(){
-
+    
         
         $postagens = Postagem::latest()->paginate($this->tamanhoPaginacao);
 
         return view('admin.postagens.index',compact ('postagens'));
+    }
+
+
+    public function pesquisar(Request $request){
+        $filters = $request->except('token');
+
+        $postagens = Postagem::where("o_que_vai_doar",'LIKE',"%{$request->pesquisa}%")
+           ->orWhere("tipo",'LIKE',"%{$request->pesquisa}%")
+           ->paginate($this->tamanhoPaginacao);
+
+        return view('admin.postagens.index',compact('postagens','filters'));
     }
 
     public function create(){

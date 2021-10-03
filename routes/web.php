@@ -35,7 +35,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::get('/postagens/novo', [PostagemController::class,'create'])->name('postagens.create');
     Route::get('/postagens/{id}', [PostagemController::class,'show'])->name('postagens.show');
     Route::get('/postagens/editar/{id}', [PostagemController::class,'edit'])->name('postagens.edit');
-   
+    Route::any('/procurar',[PostagemController::class,'pesquisar'])->name('postagens.search');
 
     Route::get('/perfil',[RegisteredUserController::class,'edit'])->name('perfil.edit');
     Route::post('/perfil', [RegisteredUserController::class,'store'])->name('perfil.store');

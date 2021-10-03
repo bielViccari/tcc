@@ -152,12 +152,17 @@ li {
           
           <div class=" navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <form class="d-flex">
-                <input class=" form-control me-1 " type="search" placeholder="Buscar" aria-label="Search">
+
+
+              <form method="post" action="{{ route('postagens.search') }}" class="d-flex">
+                @csrf
+                <input class=" form-control me-1 " value="{{ old('pesquisa') }}" name="pesquisa" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
                 <button class="  btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 </svg></button>
               </form>
+
+
             </ul>
             <form class="d-flex">
               <a class="" href="{{ route('postagens.create') }}"><svg style="color:#1e3a8a;" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
@@ -258,7 +263,11 @@ li {
        @endif
                    @endforeach
 <div class="justify-content-left d-flex">
-      {{$postagens->links()}}
+  @if (isset($filters))
+{{ $postagens->appends($filters)->links() }}      
+  @else   
+  {{$postagens->links()}}
+  @endif
 </div>
 </div>
 </main>
