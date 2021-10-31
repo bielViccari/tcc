@@ -83,7 +83,7 @@
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-    background-color: #00008B;
+    background-color: #0a0aa2;
 }
 
 #myFooter .fa{

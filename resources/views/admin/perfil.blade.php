@@ -107,7 +107,7 @@ li {
                             
                               <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                              <button type="submit" class="mt-3 text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >Sair</button>
+                              <button type="submit" class="mt-3 text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >sair</button>
                               </form>
                             </button>
                           </div>
@@ -128,7 +128,7 @@ li {
 @if (Auth::user()->id)
 <div class="container mb-12 mt-12">
   <div class="row">
-    <div class="col-3 mx-auto bg-white shadow rounded">
+    <div style="height:300px;" class="col-3 mx-auto bg-white shadow rounded">
         <div class="input-group input-group-sm flex-nowrap">
       <p class="text-muted mt-3"><strong>Detalhes da conta </strong></p> 
       
@@ -137,18 +137,10 @@ li {
         </svg><p>
         </div>
         <hr width="170px" style="height: 3px; color: blue ;">
-          <div class="container mt-3 mb-4" style="padding-left: 23%">
-          <img class="bd-placeholder-img rounded-circle" width="120" height="120" src="{{ url('kathlen.jfif') }}"> 
-        </div>
-          <div class="mt-1 mr-3" style="">
-            <label for="formControlFile" class="form-control-sm">
-              <input type="file" class="form-control-file form-control-file-sm" id="imagem" name="imagem"> 
-            </label>
-          </div>
-      
-     <hr style="color: rgb(23, 37, 116); height:2px;">
+          
+         
      <div class="container">
-      <p class="text-muted mt-1"><strong> Editar conta </strong></p>
+      
       <form enctype="multipart/form-data" action="{{ route('site.usuarios.store') }}" method="POST">
           @csrf
           
@@ -189,9 +181,9 @@ li {
       
    
     <div class="input-group input-group-sm flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
-            <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
-          </svg></span>
+      <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+      </svg></span>
         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="confirmar senha" aria-label="Confirmar-senha" aria-describedby="addon-wrapping">
       </div>
 </div>
@@ -209,7 +201,7 @@ li {
       
    </div>
           <div class="d-grid justify-content-md-end mb-12">
-          <button type="submit" style="" class="btn btn-sm btn-outline-warning mt-1">Salvar </button>
+          <button type="submit" style="" class="btn btn-sm btn-outline-warning mt-1">alterar </button>
           </div>
    </div>
   </form>
@@ -220,7 +212,7 @@ li {
 
     <div class="col-8 mx-auto  bg-white shadow rounded">
       
-        <div class="input-group mt-3 input-group-sm flex-nowrap">
+        <div class="input-group mt-3 input-group-sm  flex-nowrap">
           <a class="text-muted mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="mt-3" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16">
               <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
             </svg></a>
@@ -233,33 +225,38 @@ li {
              
               <div class="row">
               @foreach ($postagens as $postagem)
-               
+              <div class=" mb-3">
+                <div class="row g-0">
+                  <div class="col-md-5">
+                    <img src="{{ url("storage/{$postagem->imagem}") }}" style="width:250px; height:170px;" class="img-fluid rounded-start" >
+                  </div>
+                  <div class="col-md-7">
+                    <div class="">
+                      <h5 class="card-title text-lg text-muted"><strong>Publicou uma doação</strong></h5>
+                      <p >{{ $postagem->o_que_vai_doar }} </p>
+
+                      <small class="text-muted "> {{ $postagem->created_at->format('d/m/Y ') }}</small> 
+                      <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        
+                        <button style="margin-left:60%;" class="btn btn-sm btn-outline-danger mt-8" type="submit">
+                           Apagar
+                        </button>
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>  
               
-              <div class="row">
-            
-            <div class="col-md-2">
-              <img class=" img  rounded mt-0 " style="width: 250px; height:100px;" width="200" height="150" src="{{ url("storage/{$postagem->imagem}") }}">
-              </div>
-            <div class="col-md-3 mt-0">
-              <p class="text-muted"><strong> Publicou uma doação:</strong> </p>
-              <p class="text-muted">Titulo:{{ $postagem->o_que_vai_doar }}</p>
-              <p><small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }} </small></p>
-              </div> 
-              <div class="col-md-4 mt-11">
-                <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
-                  @csrf
-                  @method('delete')
-                  
-                  <button class="btn btn-sm btn-outline-danger" type="submit">
-                     Apagar
-                  </button>
-                </form>
-              </div>
-              <hr class="mt-2 mb-12 " style="width: 450px;">
              
-            </div> 
+                
+              
+             
+            
               @endforeach
-           
+            </div> 
           </div>    
             </div>
 

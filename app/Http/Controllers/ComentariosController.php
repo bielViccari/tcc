@@ -21,7 +21,8 @@ class ComentariosController extends Controller
         ->with('mensagem','comentario enviado !');
     }
 
-    public function destroy(Comentario $comentario){
+    public function destroy($id){
+        $comentario= Comentario::find($id);
         $comentario->delete();
 
         return redirect()->back()

@@ -5,7 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
-    
+        
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
 
         <title>Solidariedade</title>
@@ -20,9 +23,12 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
                
+        
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
+     
+
 
 ul {
   display: flex;
@@ -66,16 +72,37 @@ li {
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
 }
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
 
- 
-#fundo
-{
-  background-color:
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
 }
-#procurar_doar
-{
-  background-color: 
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
 }
+#btn_anchor
+{
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3339e8;
+  
+}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 
     </style>
     </head>
@@ -83,68 +110,108 @@ li {
   <body>  
 
     
-
-
     
-    <nav class="bg-blue-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
+   
+    <div> 
+      <nav class="bg-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
+              </div>
+              <div class=" md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                  
+                  
+                  <a href="{{ route('site.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+    
+                  <a href="{{ route('postagens.index') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
+    
+                  <a href="{{ route('postagens.create') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
+    
+                  <a href="#"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+    
+                  
+                </div>
+              </div>
             </div>
             <div class=" md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
-                
-                
-                <a href="{{ route('admin.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
-  
-                <a href="{{ route('postagens.index') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
-  
-                <a href="{{ route('postagens.create') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
-  
-                <a href="{{ route('site.quem_somos.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
-  
-                
-              </div>
-            </div>
-          </div>
-          <div class="md:block">
-            <div class="ml-1  flex items-center md:ml-6">
-             
-              @if (Auth::user())
-
-              <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >PERFIL</a>
-              
-          @else
-          <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-          <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
-       
-
-          @endif
-          
+              <div class="ml-1  flex items-center md:ml-6">
                
+                @if (Auth::user())
+
+                <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
                 
+            @else
+            <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+            <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+         
+
+            @endif
+            
+                 
+                  
+                </div>
               </div>
             </div>
+           
           </div>
-         
         </div>
-      </div>
-    </nav>
-    
+      </nav>
     
 
+
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ url('slide1.png') }}" width="100%" height="100%" alt="">
+          <div class="container">
+            <div class="carousel-caption text-start">
+              
+              <p><a id="btn_anchor" class="ml-12 btn btn-sm " href="#anchor"><img class="mt-2" src="{{ url('seta-para-baixo.png') }}" alt=""></a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+        <img src="https://portalresiduossolidos.com/wp-content/uploads/2014/05/Sistema-de-coleta-de-roupas-e-cal%C3%A7ados-usados-na-Alemanha-1.jpg" width="100%" height="100%" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              
+              <p><a class="btn btn-sm btn-primary" href="{{ route('postagens.create') }}">Doe agora.</a></p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    
+
+
+    
+    
+    
 <main>
 
 
-  
-    <div class="">
-<img height="1600px" width="1600px" src="https://institutomarciliomarinho.com.br/wp-content/uploads/2020/02/Banner_Solidariedade-e1581343075635.png"  > 
-    </div>
+
+   
   
 
-  <div class="album py-5 " id="fundo">
+  <div class="album  " id="fundo">
     <div class="container  ">
       
       <nav class="navbar navbar-expand-lg navbar-light " id="prucurar_doar">
@@ -181,7 +248,7 @@ li {
       </div>
  @endif
  <div class="row">
-
+  
   <p class="text-muted text-lg"><strong>Minhas Doações</strong></p>
   @foreach ($postagens as $postagem)      
   @if (Auth::user()->id === $postagem->user_id)
@@ -223,40 +290,41 @@ li {
          
       @endif
 
-      @if (Auth::user()->id <> $postagem->user_id)
      
-      @endif
               @endforeach
              
            
       
-           
+              <div id="anchor"></div>   
        <p class="text-muted text-lg mt-12"><strong>Doações</strong></p>
        @foreach ($postagens as $postagem)      
        @if (Auth::user()->id <> $postagem->user_id)
-  
        <div class="col-3 mt-3">
-         <div class="card shadow-sm">
-           <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
-           <div class="card-body bg-light">
-             <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
-               <br>
-               <br>
-             <div class="d-flex justify-content-between align-items-center">
-               <div class="btn-group">
-                 
-                 
-     
-     <a class="text link-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
-     
-     
-               </div>
-               <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
-             </div>
-           </div>
-         </div>
-       </div>
-            
+        <div class="card shadow-sm">
+          <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
+          <div class="card-body bg-light">
+            <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
+              <br>
+              <br>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                
+                
+    
+    <a class="text link-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
+    
+    
+              </div>
+              <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      
+      
+      
        
             
               
