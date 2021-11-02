@@ -110,7 +110,7 @@ li {
 
 <body>
  
-  <nav class="bg-blue-900">
+  <nav class="bg-blue-900 fixed-top">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
@@ -267,6 +267,9 @@ li {
         </p>
             </div>
             <div class="col-10 bg-gray-50 ">
+              @if (Auth::user()->id ===$comentario->user_id)
+                  
+              
               <form action="{{ route('comentarios.destroy',$comentario->id) }}" method="post">
                 @csrf
                 @method('delete')
@@ -278,6 +281,7 @@ li {
                   </svg>
                 </button>
               </form>
+              @endif
           <p class="comentario " id="texto_comentario">
            {{ $comentario->comentario }}
           </p>
@@ -332,21 +336,7 @@ li {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
    @yield('footer')

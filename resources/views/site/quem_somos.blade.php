@@ -88,7 +88,7 @@ li {
     <body>
       @yield('conteudo')
       <div> 
-        <nav class="bg-blue-900">
+        <nav class="bg-blue-900 fixed-top">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">

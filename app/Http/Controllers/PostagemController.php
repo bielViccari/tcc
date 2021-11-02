@@ -14,7 +14,7 @@ class PostagemController extends Controller
 
     function __construct(){
 
-        $this->tamanhoPaginacao = 6;
+        $this->tamanhoPaginacao = 4;
         
     }
 
@@ -73,6 +73,7 @@ class PostagemController extends Controller
     public function show($id){
         $postagens = Postagem::find($id);
 
+        
 
         if (!$postagens)
         return redirect()->route('postagens.index');
@@ -106,7 +107,7 @@ class PostagemController extends Controller
          
        }
 
-       $postagens->update($request->all());
+       $postagens->update($dados);
 
        return redirect()
        ->route('postagens.index')
