@@ -60,14 +60,17 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect()
-        ->route('admin.home')
-        ->with('messagem','informações editada com sucesso !');
+        ->route('admin.home');
+       
     } 
 
     public function update(Request $request, $id)
     {
         $user= User::findOrFail($id);
+
+        
         $user->update($request->all());
+        
 
        return redirect()
        ->route('perfil.edit')

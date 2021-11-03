@@ -182,11 +182,11 @@ li {
           </div>
         </div>
         <div class="carousel-item">
-        <img src="https://portalresiduossolidos.com/wp-content/uploads/2014/05/Sistema-de-coleta-de-roupas-e-cal%C3%A7ados-usados-na-Alemanha-1.jpg" width="100%" height="100%" alt="">
+        <img src="{{ url('slide2.png') }}" width="100%" height="100%" alt="">
           <div class="container">
-            <div class="carousel-caption">
+            <div class="carousel-caption text-end">
               
-              <p><a class="btn btn-sm btn-primary" href="{{ route('postagens.create') }}">Doe agora.</a></p>
+              <p><a style="margin-right: 20%;" class="btn btn-lg btn-danger" href="{{ route('postagens.create') }}">Doe agora.</a></p>
             </div>
           </div>
         </div>
@@ -279,6 +279,7 @@ li {
  <button class="btn btn-sm btn-outline-danger" type="submit">
     Apagar
  </button>
+ 
 </form>
 
           

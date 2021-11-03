@@ -194,25 +194,25 @@ li {
       
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label id="type" for="tipo" class="block text-sm font-medium text-gray-700">Tipo</label>
-                <select id="country" name="tipo" autocomplete="tipo" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>Meia</option>
-                  <option>bermuda</option>
-                  <option>Calça</option>
-                  <option>Blusa</option>
-                  <option>Moletom</option>
-                  <option>Cobertor</option>
+                <select id="country" name="tipo" autocomplete="tipo" class="mt-1 text-muted block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option class="text-muted">Meia</option>
+                  <option class="text-muted">bermuda</option>
+                  <option class="text-muted">Calça</option>
+                  <option class="text-muted">Blusa</option>
+                  <option class="text-muted">Moletom</option>
+                  <option class="text-muted">Cobertor</option>
                 </select>
                 </div>
       
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label id="qtd" for="quantidade" class="block text-sm font-medium text-gray-700">Quantidade</label>
-                <select id="country " name="quantidade" autocomplete="quantidade" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
+                <select id="country " name="quantidade" autocomplete="quantidade" class="mt-1 text-muted block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                  <option class="text-muted">1</option>
+                  <option class="text-muted">2</option>
+                  <option class="text-muted">3</option>
+                  <option class="text-muted">4</option>
+                  <option class="text-muted">5</option>
+                  <option class="text-muted">6</option>
                 </select>
                 </div>
 
