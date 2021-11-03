@@ -63,4 +63,15 @@ class RegisteredUserController extends Controller
         ->route('admin.home')
         ->with('messagem','informações editada com sucesso !');
     } 
+
+    public function update(Request $request, $id)
+    {
+        $user= User::findOrFail($id);
+        $user->update($request->all());
+
+       return redirect()
+       ->route('perfil.edit')
+       ->with('mensagem',"Usuario editado com sucesso !");   
+
+    }
 }

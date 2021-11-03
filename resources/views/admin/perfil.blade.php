@@ -2,7 +2,23 @@
   @extends('layouts.footer')
      <head>
         <title>Perfil</title>
-    
+
+       
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
+
+
+
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
@@ -37,6 +53,8 @@ li {
 
 
 #a {
+  font-family: 'Goldman', cursive;
+  font-size: 15px;
   display: block;
   position: relative;
   padding: 0.2em 0;
@@ -68,8 +86,19 @@ li {
   transform: translate3d(0, 0.2em, 0);
 }
 
-
+#publi
+{
+  font-family: 'Goldman', cursive;
+  word-spacing: 3px;
+  font-size: 23px;
+}
     
+#nome_doou
+{
+  font-family: 'Doppio One', sans-serif;
+  font-size: 15px;
+  word-spacing: 2px;
+}
         </style>
 </head>
         <body class="bg-gray-100">
@@ -107,7 +136,7 @@ li {
                             
                               <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                              <button type="submit" class="mt-3 text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >sair</button>
+                              <button id="a" type="submit" class="mt-3 text-white  px-3 py-2 rounded-md text-sm font-medium" >sair</button>
                               </form>
                             </button>
                           </div>
@@ -128,7 +157,7 @@ li {
 @if (Auth::user()->id)
 <div class="container mb-12 mt-12">
   <div class="row">
-    <div style="height:300px;" class="col-3 mx-auto bg-white shadow rounded">
+    <div style="height:350px;" class="col-3 mx-auto bg-white shadow rounded">
         <div class="input-group input-group-sm flex-nowrap">
       <p class="text-muted mt-3"><strong>Detalhes da conta </strong></p> 
       
@@ -141,13 +170,20 @@ li {
          
      <div class="container">
       
-      <form enctype="multipart/form-data" action="{{ route('site.usuarios.store') }}" method="POST">
+
+<form enctype="multipart/form-data" action="{{  route('perfil.update',$user->id) }}" method="POST">
           @csrf
-          
+          @method('put')
+        
       
    </div>
 
    <div class="container mt-2">
+    @if ($mensagem= Session::get('mensagem'))
+    <div class="alert alert-success" >
+      <p>{{ $mensagem }}</p>
+    </div>
+@endif
    <div class="input-group input-group-sm flex-nowrap">
     <span class="input-group-text" id="addon-wrapping"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-at" viewBox="0 0 16 16">
         <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"/>
@@ -203,6 +239,8 @@ li {
           <div class="d-grid justify-content-md-end mb-12">
           <button type="submit" style="" class="btn btn-sm btn-outline-warning mt-1">alterar </button>
           </div>
+
+          
    </div>
   </form>
 </div>
@@ -228,19 +266,20 @@ li {
               <div class=" mb-3">
                 <div class="row g-0">
                   <div class="col-md-5">
-                    <img src="{{ url("storage/{$postagem->imagem}") }}" style="width:250px; height:170px;" class="img-fluid rounded-start" >
+                    <img src="{{ url("storage/{$postagem->imagem}") }}" style="width:250px; height:170px;" class="img-fluid mt-3 rounded-start" >
                   </div>
                   <div class="col-md-7">
                     <div class="">
-                      <h5 class="card-title text-lg text-muted"><strong>Publicou uma doação</strong></h5>
-                      <p >{{ $postagem->o_que_vai_doar }} </p>
-
-                      <small class="text-muted "> {{ $postagem->created_at->format('d/m/Y ') }}</small> 
-                      <form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
+                      <h5 id="publi" class="card-title text-lg text-muted mt-3"><strong>Publicou uma doação</strong></h5>
+                      <p id="nome_doou" class="text-muted" >o que doou</p>
+                      <p>{{ $postagem->o_que_vai_doar }} </p>
+                    
+                      
+                      <form style="margin-top: 10%;" action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
                         @csrf
                         @method('delete')
-                        
-                        <button style="margin-left:60%;" class="btn btn-sm btn-outline-danger mt-8" type="submit">
+                        <small  class="text-muted ">DATA: {{ $postagem->created_at->format('d/m/Y ') }}</small> 
+                        <button style="margin-left:20%;" class="btn btn-sm btn-outline-danger" type="submit">
                            Apagar
                         </button>
                       </form>
@@ -251,11 +290,12 @@ li {
               </div>  
               
              
-                
+              <hr style="height: 3px; width:700px;">
               
              
             
               @endforeach
+              
             </div> 
           </div>    
             </div>
@@ -275,8 +315,7 @@ li {
   
 </div>
 
-@else
-<a>jajá crio a parte para os usuarios verem
+
 @endif
               
                   

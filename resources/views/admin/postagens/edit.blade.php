@@ -8,6 +8,10 @@
 
         <title>Solidariedade</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -95,6 +99,8 @@ li {
 
 
 #a {
+  font-family: 'Goldman', cursive;
+  font-size: 15px;
   display: block;
   position: relative;
   padding: 0.2em 0;
@@ -148,52 +154,54 @@ li {
 </head>
 
 <body>
-  <nav class="bg-blue-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
+  <div> 
+    <nav class="bg-blue-900 fixed-top">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8" src="{{ url('solidariedade.png') }}" alt="Workflow">
+            </div>
+            <div class=" md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                
+                
+                <a href="{{ route('site.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
+  
+                <a href="{{ route('postagens.index') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
+  
+                <a href="{{ route('postagens.create') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
+  
+                <a href="{{ route('site.quem_somos.home') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+  
+                
+              </div>
+            </div>
           </div>
           <div class=" md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              
-              
-              <a href="{{ route('admin.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Home</a>
-
-              <a href="{{ route('postagens.index') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Doações</a>
-
-              <a href="{{ route('postagens.create') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
-
-              <a href="{{ route('site.quem_somos.home') }}" id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
-
-              
-            </div>
-          </div>
-        </div>
-        <div class=" md:block">
-          <div class="ml-1  flex items-center md:ml-6">
-           
-            @if (Auth::user())
-
-            <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
-            
-        @else
-        <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-        <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
-     
-
-        @endif
-        
+            <div class="ml-1  flex items-center md:ml-6">
              
-             
-            </div>
-          </div>
-        </div>
+              @if (Auth::user())
+
+              <a id="a" href="{{ route('perfil.edit') }} " class="text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
+              
+          @else
+          <a id="a" href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+          <a id="a" href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
        
+
+          @endif
+          
+               
+                
+              </div>
+            </div>
+          </div>
+         
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  
 
 
   

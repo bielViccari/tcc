@@ -38,7 +38,7 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'], function(){
     Route::any('/procurar',[PostagemController::class,'pesquisar'])->name('postagens.search');
 
     Route::get('/perfil',[RegisteredUserController::class,'edit'])->name('perfil.edit');
-    Route::post('/perfil', [RegisteredUserController::class,'store'])->name('perfil.store');
+    Route::put('/perfil/{id}', [RegisteredUserController::class,'update'])->name('perfil.update');
     
     
     Route::post('/postagens', [PostagemController::class,'store'])->name('postagens.store');

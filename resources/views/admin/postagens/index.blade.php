@@ -12,9 +12,10 @@
         
 
         <title>Solidariedade</title>
-
         
-        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
@@ -42,6 +43,8 @@ li {
 
 
 #a {
+  font-family: 'Goldman', cursive;
+  font-size: 15px;
   display: block;
   position: relative;
   padding: 0.2em 0;
@@ -130,7 +133,7 @@ li {
     
                   <a href="{{ route('postagens.create') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
     
-                  <a href="#"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+                  <a href="{{ route('site.quem_somos.home') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
     
                   
                 </div>
@@ -141,11 +144,11 @@ li {
                
                 @if (Auth::user())
 
-                <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
+                <a id="a" href="{{ route('perfil.edit') }} " class="text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
                 
             @else
-            <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-            <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+            <a id="a"  href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+            <a id="a" href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
          
 
             @endif
@@ -206,7 +209,8 @@ li {
     
 <main>
 
-
+ 
+    
 
    
   
@@ -240,7 +244,75 @@ li {
         </div>
       </nav>
 
+      @if (Auth::user()->id === 1)
 
+
+      @if ($mensagem= Session::get('mensagem'))
+      <div class="alert alert-success" >
+        <p>{{ $mensagem }}</p>
+      </div>
+ @endif
+      
+ <p class="text-muted text-lg"><strong>Editar doações do site</strong></p>
+ <div class="row">
+ @foreach ($postagens as $postagem)      
+ @if (Auth::user()->id === 1)
+ 
+ <div class="col-3 mt-3">
+   <div class="card shadow-sm">
+     <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
+     <div class="card-body bg-light">
+       <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
+         <br>
+         <br>
+       <div class="d-flex justify-content-between align-items-center">
+         <div class="btn-group">
+           
+           
+
+<a class="btn btn-sm btn-outline-primary" href="{{route('postagens.show',$postagem->id)}}">ver mais</a>
+<a href="{{ route('postagens.edit', $postagem->id) }}" class="btn btn-sm btn-outline-warning ">Editar</a>
+<form action="{{ route('postagens.destroy',$postagem->id) }}" method="post">
+ @csrf
+ @method('delete')
+ 
+ <button class="btn btn-sm btn-outline-danger" type="submit">
+    Apagar
+ </button>
+</form>
+
+          
+           
+         </div>
+         <small class="text-muted">{{ $postagem->created_at->format('d/m/Y ') }}</small>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ 
+      
+        
+     @endif
+
+    
+             @endforeach
+ </div>
+    </div>           
+          
+
+
+   
+ </div>
+    </div>           
+    <div class="justify-content-left d-flex">
+      @if (isset($filters))
+    {{ $postagens->appends($filters)->links() }}      
+      @else   
+      {{$postagens->links()}}
+      @endif
+    </div>        
+      @else
 
       @if ($mensagem= Session::get('mensagem'))
       <div class="alert alert-success" >
@@ -256,7 +328,7 @@ li {
   <div class="col-3 mt-3">
     <div class="card shadow-sm">
       <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
-      <div class="card-body bg-light">
+      <div class="card-body">
         <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
           <br>
           <br>
@@ -302,7 +374,7 @@ li {
        <div class="col-3 mt-3">
         <div class="card shadow-sm">
           <img src="{{ url("storage/{$postagem->imagem}") }}" alt="{{ $postagem->o_que_vai_doar }}" class="img-fluid card-img-top" style="width: 25rem; height: 15rem;">
-          <div class="card-body bg-light">
+          <div class="card-body ">
             <p class="card-text "><strong>{{ $postagem->o_que_vai_doar }}</strong><br>
               <br>
               <br>
@@ -339,7 +411,7 @@ li {
 </div>
 </div>
 </main>
-
+@endif
 @yield('footer')
 
   </body>

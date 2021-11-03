@@ -6,8 +6,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
-    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+
         
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
 
         <title>@yield('titulo')Solidariedade</title>
 
@@ -42,6 +48,8 @@ li {
 
 
 #a {
+  font-family: 'Goldman', cursive;
+  font-size: 15px;
   display: block;
   position: relative;
   padding: 0.2em 0;
@@ -81,7 +89,28 @@ li {
  #insta:hover{
    color: deeppink;
  }
- 
+
+ #txt1
+ {
+  font-size:15px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+ }
+
+ #txt2
+ {
+  font-size:15px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+ }
+ #txt3
+ {
+  font-size:17px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+ }
+ #titulo
+ {
+  font-size:17px;
+  font-family: 'Ubuntu Condensed', sans-serif;
+ }
         </style>
 
     </head>
@@ -89,7 +118,7 @@ li {
       @yield('conteudo')
       <div> 
         <nav class="bg-blue-900 fixed-top">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div class="flex items-center justify-between h-16">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -105,7 +134,7 @@ li {
       
                     <a href="{{ route('postagens.create') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Fazer doações</a>
       
-                    <a href="#"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
+                    <a href="{{ route('site.quem_somos.home') }}"id="a" class="text-white px-3 py-2 rounded-md text-sm font-medium" >Quem Somos?</a>
       
                     
                   </div>
@@ -115,14 +144,14 @@ li {
                 <div class="ml-1  flex items-center md:ml-6">
                  
                   @if (Auth::user())
-
-                  <a href="{{ route('perfil.edit') }} " class="text-white hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
+    
+                  <a id="a" href="{{ route('perfil.edit') }} " class="text-white hover:text-white px-3 py-2 rounded-md text-sm font-medium" >perfil</a>
                   
               @else
-              <a href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-              <a href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
+              <a id="a"  href="{{ route('login') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+              <a id="a" href="{{ route('site.usuarios.create') }}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Registrar</a>
            
-
+    
               @endif
               
                    
@@ -134,6 +163,7 @@ li {
             </div>
           </div>
         </nav>
+      
         
        <img src="{{ url('quemsomos.png') }}">
 
@@ -145,14 +175,14 @@ li {
 <div class="col-4">
   <center> <img width="50" height="50" src="{{ url('alvo.png') }}" alt=""></center>
    <center><p><strong>OBJETIVO</strong></p></center>
-   <p class="text-muted">Nosso objetivo é facilitar a forma de doar roupas e ajudara instituições, devido à pandemia, fazendo a gente utilizar a internet não só para ver redes sociais, mas sim para fazer muitas coisas que nós levava-mos tempo para fazer , sem sair de casa</p>
+   <p id="txt1" class="text-muted">Nosso objetivo é facilitar a forma de doar roupas e ajudara instituições, devido à pandemia, fazendo a gente utilizar a internet não só para ver redes sociais, mas sim para fazer muitas coisas que nós levava-mos tempo para fazer , sem sair de casa</p>
 </div>
 
 
 <div class="col-4" id="meio">
   <center><img width="50" height="50" src="{{ url('trabalho-em-equipe.png') }}" alt=""></center>
  <center> <p><strong>QUEM SOMOS?</strong></p></center>
- <p class="text-muted">Site planejado e desenvolvido em 2021 pelos alunos da Etec de Araçatuba ext. de Guararapes : Kathlen Moraes, Gabriel Viccari, Nycoly Garcia,Leticía Valério,Brena Oliveira. E com auxilio do professor de produção e desenvolvimento do trabalho de conclusão de curso(PDTCC) Carlos domingues Granja </p>
+ <p id="txt2" class="text-muted">Site planejado e desenvolvido em 2021 pelos alunos da Etec de Araçatuba ext. de Guararapes : Kathlen Moraes, Gabriel Viccari, Nycoly Garcia, Leticía Valério, Brena Oliveira. Com auxilio do professor de produção e desenvolvimento do trabalho de conclusão de curso (PDTCC) Carlos domingues Granja, e o professor de Programação de aplicativos Mobile (PAM), Programação Web (PW), Lucas Anjos dos Santos. </p>
 </div>
 
 
@@ -164,13 +194,13 @@ li {
     <span>
   <img  src="{{ url('faceicon.png') }} " width="20" height="20">
     </span>
-    <span><a href="#"><strong style="color:;">&nbsp Facebook</strong></a></span>
+    <span id="txt3"><a href="#"><strong style="color:;">&nbsp Facebook</strong></a></span>
   </div>
 <div class="mycontainer" style="display: flex;margin-left:150px;">   
     <span>
       <img id="insta_foto" src="{{ url('insta.png') }} " width="20" height="20">
         </span>
-        <span><a id="insta" style="" href="#"><strong style="color;">&nbsp Instagram</strong></a></span>
+        <span id="txt3"><a id="insta" style="" href="#"><strong style="color;">&nbsp Instagram</strong></a></span>
       </div>
 
         
@@ -184,12 +214,12 @@ li {
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
           <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
         </svg>
-  <p class="text-muted">&nbsp solidariedade@gmail.com</p>
+  <p id="txt2" class="text-muted">&nbsp solidariedade@gmail.com</p>
       </div>
   <div class="mycontainer mt-1" style="display: flex;margin-left:150px;">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-  </svg><p class="text-muted">&nbsp (18)996798777</p>
+  </svg><p id="txt2" class="text-muted">&nbsp (18)996798777</p>
   </div>
 </div>
          </div>
