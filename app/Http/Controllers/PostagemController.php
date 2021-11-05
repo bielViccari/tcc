@@ -14,7 +14,7 @@ class PostagemController extends Controller
 
     function __construct(){
 
-        $this->tamanhoPaginacao = 20;
+        $this->tamanhoPaginacao = 4;
         
     }
 
