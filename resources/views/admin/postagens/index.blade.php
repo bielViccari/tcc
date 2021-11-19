@@ -244,7 +244,7 @@ li {
         </div>
       </nav>
 
-      @if (Auth::user()->id === 1)
+      @if (Auth::user()->id === 14)
 
 
       @if ($mensagem= Session::get('mensagem'))
@@ -256,7 +256,7 @@ li {
  <p class="text-muted text-lg"><strong>Editar doações do site</strong></p>
  <div class="row">
  @foreach ($postagens as $postagem)      
- @if (Auth::user()->id === 1)
+ @if (Auth::user()->id === 14)
  
  <div class="col-3 mt-3">
    <div class="card shadow-sm">

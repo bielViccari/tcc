@@ -139,7 +139,7 @@ li {
                               <button id="a" onclick="sair()" type="submit" class="mt-3 text-white  px-3 py-2 rounded-md text-sm font-medium" >sair</button>
                               <script>
                                 function sair(){
-                                   alert('Deseja sair da conta ?');
+                                   confirm('Deseja sair da conta ?');
                                 }
                               </script>  
                             </form>
@@ -289,7 +289,7 @@ li {
                         </button>
                         <script>
                           function apagar_postagem(){
-                             alert('deseja mesmo apagar essa postagem ?');
+                             confirm('deseja mesmo apagar essa postagem ?');
                           }
                         </script>
                       </form>

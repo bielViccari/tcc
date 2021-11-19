@@ -187,7 +187,7 @@ li {
         <h1 class="text-lg mb-1"><strong>{{ $postagens->o_que_vai_doar }}</strong></h1>
         
         
-        <p class="text-muted mt-2"><strong> tipo de doação</strong></p>
+        <p class="mt-2"><strong> tipo de doação</strong></p>
        
          <p> {{ $postagens->tipo }}</p>
          
@@ -225,6 +225,91 @@ li {
 
 
 
+  @if (Auth::User()->id === 14)      
+  <div class="row" style="padding-right: 27%;">
+    <div class="mb-12">
+    <div class="container mt-3 " id="comentarios">
+      <div class="comentarios">
+        <div class="mb-3">
+          <p class="text-muted text-lg"><strong>Comentários :</strong></p>
+        <hr class="" style="width: 60px; color:blue; height:3px;">
+        </div>
+        <div class="row">
+          
+
+            @if ($errors->any())
+      <div class="alert alert-danger">
+        <strong>algo deu errado</strong> <br><br>
+        <ul>
+          @foreach ($errors as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+      @endif
+      
+      @if ($mensagem = Session::get('mensagem'))
+      <div class="alert alert-success">
+        <p>{{ $mensagem }}</p>
+      </div>
+          
+      @endif
+
+  
+
+          @foreach ($postagens->comentarios as $comentario )
+          
+
+          
+          <div class="col-2 bg-gray-50">
+      <p class="imagem text-muted text-lg mt-12 " id="iniciais">
+          {{ $comentario->iniciais() }}
+      </p>
+          </div>
+          <div class="col-10 bg-gray-50 ">
+            @if (Auth::user()->id ===$comentario->user_id)
+                
+            
+            <form action="{{ route('comentarios.destroy',$comentario->id) }}" method="post">
+              @csrf
+              @method('delete')
+              
+              <button style="margin-left: 95%;" class="btn mb-1 mt-1 btn-sm btn-danger" onclick="apagar()" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                  <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+                </svg>
+              </button>
+              <script>
+                function apagar(){
+                   confirm('Deseja mesmo apagar essa mensagem ?');
+                }
+            </script>
+            </form>
+            @endif
+        <p class="comentario " id="texto_comentario">
+         {{ $comentario->comentario }}
+        </p>
+          </div>
+          <div  class="col-12 bg-gray-50 mb-2">
+           
+            <p style="padding-left:42px;" class="text-muted" id="user_comentario" >
+           
+           
+              Autor : {{ $comentario->user->name }} em {{ $comentario->created_at->format('d/m/Y H:i') }}
+          
+           
+          </p> 
+            
+            
+            
+            
+          </div>
+        
+          @endforeach
+          
+
+@else
     
 
  
@@ -288,7 +373,7 @@ li {
                 </button>
                 <script>
                   function apagar(){
-                     alert('Deseja mesmo apagar essa mensagem ?');
+                     confirm('Deseja mesmo apagar essa mensagem ?');
                   }
               </script>
               </form>
@@ -327,6 +412,7 @@ li {
                   </div>
                 
               </form>
+@endif
             </section>
 
    
@@ -341,8 +427,10 @@ li {
         
         
         </div>
+        
       </div>
-  </div>
+  
+    </div>
 
 
 
