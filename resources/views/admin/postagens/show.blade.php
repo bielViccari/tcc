@@ -225,13 +225,13 @@ li {
 
 
 
-  @if (Auth::User()->id === 14)      
+  @if (Auth::user()->id === 14)    
   <div class="row" style="padding-right: 27%;">
     <div class="mb-12">
     <div class="container mt-3 " id="comentarios">
       <div class="comentarios">
         <div class="mb-3">
-          <p class="text-muted text-lg"><strong>Comentários :</strong></p>
+          <p class="text-muted text-lg"><strong>Editar comentários :</strong></p>
         <hr class="" style="width: 60px; color:blue; height:3px;">
         </div>
         <div class="row">
@@ -267,7 +267,7 @@ li {
       </p>
           </div>
           <div class="col-10 bg-gray-50 ">
-            @if (Auth::user()->id ===$comentario->user_id)
+            @if (Auth::user()->id === 14)
                 
             
             <form action="{{ route('comentarios.destroy',$comentario->id) }}" method="post">

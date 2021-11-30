@@ -195,7 +195,7 @@ li {
                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label id="type" for="tipo" class="block text-sm font-medium text-gray-700">Tipo</label>
                 <select id="country" name="tipo" autocomplete="tipo" class="mt-1 text-muted block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option class="text-muted">Meia</option>
+                  <option class="text-muted">calçado</option>
                   <option class="text-muted">bermuda</option>
                   <option class="text-muted">Calça</option>
                   <option class="text-muted">Blusa</option>

@@ -313,6 +313,7 @@ li {
       {{$postagens->links()}}
       @endif
     </div>        
+    <div class="mt-5"></div>
       @else
 
       @if ($mensagem= Session::get('mensagem'))
